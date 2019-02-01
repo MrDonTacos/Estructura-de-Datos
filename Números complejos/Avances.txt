@@ -1,0 +1,30 @@
+¿Qué es un número complejo?
+Es un número conformado por una parte real (a) y una parte imaginaria (b), se representan de forma usual como x + yi (i = ). 
+Se pueden realizar las siguientes operaciones sobre un número complejo: Suma, resta, multiplicación, división y comparación “(>, =,<=,=)”
+
+¿Qué hace un número complejo?
+Los números complejos se emplean en diversos campos de las matemáticas, en la física y en la ingeniería. Por su capacidad para representar la corriente eléctrica y las ondas electromagnéticas, por citar un caso, son utilizados con frecuencia en la electrónica y las telecomunicaciones.    
+                                                                     
+Entidades abstractas: 
+Atributos: X, X1, X2, Y,Y1,Y2, Z
+Metodos: crearComplejo, sumarComplejo, restarComplejo, multiplicarComplejo, dividirComplejo, compararComplejo
+
+Operaciones: crearComplejoUno(X1,X2: Real), crearComplejoDos(Y1,Y2: Real),
+sumarComplejo(X,Y: Complejo), restarComplejo(X,Y: Complejo),
+MultiplicarComplejo(X,Y: Complejo), dividirComplejo(X,Y: Complejo),
+compararComplejo(X,Y: Complejo)
+
+funcion crearComplejoUno(X1,X2: Real): Complejo
+P: 	X1 y X2 son del tipo Real:
+Q:	X = (X1,X2) resultado X es del tipo Complejo 
+finfuncion
+funcion crearComplejoDos(X1,X2: Real): Complejo
+P: 	Y1 y Y2 son del tipo Real:
+Q:	Y = (Y1,Y2) resultado Y es del tipo Complejo 
+finfuncion
+funcion sumarComplejo(X,Y: Complejo): Complejo
+P: 	Y y X son del tipo Complejo
+Q:	Z = (X1+Y1),(X2 + Y2) resultado Z es del tipo Complejo
+finfuncion
+funcion restarComplejo(X,Y: Complejo): Complejo
+P:	Y y X son del tipo Complejo

@@ -11,6 +11,10 @@ public class AppNC {
 		c = new NC();
 		c.Sumar(c,a,b);
 		System.out.println(c.getReal() + "," + c.getImagi() + "i");
+		c.Multiplicar(c, b, a);
+		System.out.println(c.getReal() + "," + c.getImagi() + "i");
+		c.Dividir(c, a, b);
+		System.out.println(c.getReal() + "," + c.getImagi() + "/");
 	}
 	
 }

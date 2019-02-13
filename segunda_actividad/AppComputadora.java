@@ -36,13 +36,13 @@ public class AppComputadora {
 			
 			case 4: System.out.println("Ingresa Ip Fija"); c.setIpFija(sc.next()); break;
 			
-			case 5:	System.out.println("Inserta perifericos (Escribir true si tiene el perifericos, escribir false si no lo tiene) 1.bluetooth, 2. bocina, 3. Lector cd");
+			case 5:	try{System.out.println("Inserta perifericos (Escribir true si tiene el perifericos, escribir false si no lo tiene) 1.bluetooth, 2. bocina, 3. Lector cd");
 				
 				for (int j = 0; j < perifericos.length; j++) {
 					System.out.println(j + 1 + ". ");
 					perifericos[j] = sc.nextBoolean();
 				}
-				c.setPerifericos(perifericos); break;
+				c.setPerifericos(perifericos);}catch(Exception e) {System.out.println("Datos invalidos"); menu();}; break;
 			
 			case 6: System.out.println("Insertar observaciones"); c.setObservaciones(sc.next());break;
 				
@@ -52,11 +52,15 @@ public class AppComputadora {
 				break;
 			}
 			
-		} while (x<=7);}catch(Exception e){System.out.println("Inserta un dato valido"); menu();}
+		} while (x<=7);}catch(Exception e){}
+		
 		
 		}
+		}
+		
+		
 		
 
-}
+
 
 

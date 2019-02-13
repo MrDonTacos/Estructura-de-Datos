@@ -90,8 +90,10 @@ public class Computadora {
 		macAdrees.toUpperCase();
 		for(int j = 0;j<=17;j+=3) {
 		for(char i=65; i<=70; i++) {
-		if(macAdrees.charAt(j) == i && macAdrees.charAt(j+1) == i-17 && macAdrees.charAt(j+2) ==58 && macAdrees.length() == 18) {
+			for(char k=48;k<=57;k++) {
+		if((macAdrees.charAt(j) == i || macAdrees.charAt(j) == k) && (macAdrees.charAt(j+1) == i || macAdrees.charAt(j+1) == k) && macAdrees.charAt(j+2) ==58 && macAdrees.length() == 18) {
 		this.macAdrees = macAdrees;
+		}
 		}
 		}
 	}

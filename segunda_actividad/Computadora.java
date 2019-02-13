@@ -50,7 +50,16 @@ public class Computadora {
 	}
 
 	public void setAplicaciones(String[] aplicaciones) {
-		this.aplicaciones = aplicaciones;
+		for (int i = 0; i < aplicaciones.length; i++) {
+		for (int j = i+1; j < aplicaciones.length; j++) {
+			if(aplicaciones[i].equals(aplicaciones[j])) {
+				System.out.println("Tu aplicación " + aplicaciones[i]+  " está repetida con la aplicacion " + aplicaciones[j]);
+				aplicaciones[i] = null;
+			}else {this.aplicaciones = aplicaciones;}
+		}
+		}
+		
+		
 	}
 
 	public boolean getInternet() {
@@ -58,7 +67,10 @@ public class Computadora {
 	}
 
 	public void setInternet(boolean internet) {
-		this.internet = internet;
+		if (this.ipFija != null && this.macAdrees != null) {
+			this.internet = true;	
+		}else {this.internet = false;}
+		
 	}
 
 	public boolean getDisponibilidad() {
@@ -75,16 +87,47 @@ public class Computadora {
 	}
 
 	public void setMacAdrees(String macAdrees) {
+		macAdrees.toUpperCase();
+		for(int j = 0;j<=17;j+=3) {
+		for(char i=65; i<=70; i++) {
+		if(macAdrees.charAt(j) == i && macAdrees.charAt(j+1) == i-17 && macAdrees.charAt(j+2) ==58 && macAdrees.length() == 18) {
 		this.macAdrees = macAdrees;
+		}
+		}
 	}
+		}
 
 	public String getIpFija() {
 		return ipFija;
 	}
 
 	public void setIpFija(String ipFija) {
-		this.ipFija = ipFija;
+		try {
+	        if ( ipFija == null || ipFija.isEmpty() ) {
+	        	System.out.println("Inserte una Ip Fija valida");
+	        }
+
+	        String[] parts = ipFija.split( "\\." );
+	        if ( parts.length != 4 ) {
+	        	ipFija=null;
+	        }
+
+	        for ( String s : parts ) {
+	            int i = Integer.parseInt( s );
+	            if ( (i < 0) || (i > 255) ) {
+	            	ipFija=null;
+	            }
+	        }
+	        if ( ipFija.endsWith(".") ) {
+	        	ipFija=null;
+	        }
+
+	    } catch (NumberFormatException nfe) {
+	    	System.out.println("Ingrese una Ip valida");
+	    }this.ipFija = ipFija;
 	}
+		
+	
 
 	public boolean [] getPerifericos() {
 		return perifericos;

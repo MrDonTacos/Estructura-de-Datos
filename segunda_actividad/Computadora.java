@@ -1,4 +1,5 @@
 package segunda_actividad;
+
 import java.util.Arrays;
 
 public class Computadora {
@@ -9,7 +10,9 @@ public class Computadora {
 	private boolean internet;
 	private String macAdrees;
 	private String ipFija;
+
 	private boolean perifericos[];
+
 	private String observaciones;
 	
 	public Computadora () {
@@ -18,7 +21,9 @@ public class Computadora {
 
 
 	public Computadora(String numInventario, String[] aplicaciones, boolean internet, String macAdrees, String ipFija,
+
 			boolean perifericos[], String observaciones) {
+
 		this.numInventario = numInventario;
 		this.aplicaciones = aplicaciones;
 		this.internet = internet;
@@ -33,6 +38,7 @@ public class Computadora {
 	}
 
 	public void setNumInventario(String numInventario) {
+
 		
 		
 		if (numInventario.matches(".*[A-Za-z].*") && numInventario.matches(".*[0-9].*") && numInventario.matches("[A-Za-z0-9]*") && numInventario.length() == 15) {
@@ -40,26 +46,27 @@ public class Computadora {
 		   
 		} 
 		else {
-			System.out.println("Inserta un número valido.");
+			System.out.println("Inserta un nï¿½mero valido.");
 		}
 		}
 	
+
 
 	public String[] getAplicaciones() {
 		return aplicaciones;
 	}
 
 	public void setAplicaciones(String[] aplicaciones) {
+
 		for (int i = 0; i < aplicaciones.length; i++) {
 		for (int j = i+1; j < aplicaciones.length; j++) {
 			if(aplicaciones[i].equals(aplicaciones[j])) {
-				System.out.println("Tu aplicación " + aplicaciones[i]+  " está repetida con la aplicacion " + aplicaciones[j]);
+				System.out.println("Tu aplicaciï¿½n " + aplicaciones[i]+  " estï¿½ repetida con la aplicacion " + aplicaciones[j]);
 				aplicaciones[i] = null;
 			}else {this.aplicaciones = aplicaciones;}
 		}
 		}
-		
-		
+
 	}
 
 	public boolean getInternet() {
@@ -67,10 +74,11 @@ public class Computadora {
 	}
 
 	public void setInternet(boolean internet) {
+
 		if (this.ipFija != null && this.macAdrees != null) {
 			this.internet = true;	
 		}else {this.internet = false;}
-		
+
 	}
 
 	public boolean getDisponibilidad() {
@@ -87,6 +95,7 @@ public class Computadora {
 	}
 
 	public void setMacAdrees(String macAdrees) {
+
 		macAdrees.toUpperCase();
 		for(int j = 0;j<=17;j+=3) {
 		for(char i=65; i<=70; i++) {
@@ -99,11 +108,13 @@ public class Computadora {
 	}
 		}
 
+
 	public String getIpFija() {
 		return ipFija;
 	}
 
 	public void setIpFija(String ipFija) {
+
 		try {
 	        if ( ipFija == null || ipFija.isEmpty() ) {
 	        	System.out.println("Inserte una Ip Fija valida");
@@ -136,8 +147,10 @@ public class Computadora {
 	}
 
 	public void setPerifericos(boolean [] perifericos) {
-		this.perifericos = perifericos;
+
+		this.ipFija = ipFija;
 	}
+
 
 	public String getObservaciones() {
 		return observaciones;
@@ -148,12 +161,15 @@ public class Computadora {
 	}
 	
 
+
+
 	
 	@Override
 	public String toString() {
 		return "Computadora [numInventario=" + numInventario + ", aplicaciones=" + Arrays.toString(aplicaciones)
 				+ ", internet=" + internet + ", macAdrees=" + macAdrees + ", ipFija=" + ipFija + ", perifericos="
 				+ Arrays.toString(perifericos) + ", observaciones=" + observaciones + "]";
+
 	}
 
 }

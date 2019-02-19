@@ -10,7 +10,9 @@ public class Computadora {
 	private boolean internet;
 	private String macAdrees;
 	private String ipFija;
-	private String perifericos;
+
+	private boolean perifericos[];
+
 	private String observaciones;
 	
 	public Computadora () {
@@ -19,7 +21,9 @@ public class Computadora {
 
 
 	public Computadora(String numInventario, String[] aplicaciones, boolean internet, String macAdrees, String ipFija,
-			String perifericos, String observaciones) {
+
+			boolean perifericos[], String observaciones) {
+
 		this.numInventario = numInventario;
 		this.aplicaciones = aplicaciones;
 		this.internet = internet;
@@ -34,15 +38,35 @@ public class Computadora {
 	}
 
 	public void setNumInventario(String numInventario) {
-		this.numInventario = numInventario;
-	}
+
+		
+		
+		if (numInventario.matches(".*[A-Za-z].*") && numInventario.matches(".*[0-9].*") && numInventario.matches("[A-Za-z0-9]*") && numInventario.length() == 15) {
+		    this.numInventario = numInventario;
+		   
+		} 
+		else {
+			System.out.println("Inserta un n�mero valido.");
+		}
+		}
+	
+
 
 	public String[] getAplicaciones() {
 		return aplicaciones;
 	}
 
 	public void setAplicaciones(String[] aplicaciones) {
-		this.aplicaciones = aplicaciones;
+
+		for (int i = 0; i < aplicaciones.length; i++) {
+		for (int j = i+1; j < aplicaciones.length; j++) {
+			if(aplicaciones[i].equals(aplicaciones[j])) {
+				System.out.println("Tu aplicaci�n " + aplicaciones[i]+  " est� repetida con la aplicacion " + aplicaciones[j]);
+				aplicaciones[i] = null;
+			}else {this.aplicaciones = aplicaciones;}
+		}
+		}
+
 	}
 
 	public boolean getInternet() {
@@ -50,7 +74,11 @@ public class Computadora {
 	}
 
 	public void setInternet(boolean internet) {
-		this.internet = internet;
+
+		if (this.ipFija != null && this.macAdrees != null) {
+			this.internet = true;	
+		}else {this.internet = false;}
+
 	}
 
 	public boolean getDisponibilidad() {
@@ -67,24 +95,62 @@ public class Computadora {
 	}
 
 	public void setMacAdrees(String macAdrees) {
+
+		macAdrees.toUpperCase();
+		for(int j = 0;j<=17;j+=3) {
+		for(char i=65; i<=70; i++) {
+			for(char k=48;k<=57;k++) {
+		if((macAdrees.charAt(j) == i || macAdrees.charAt(j) == k) && (macAdrees.charAt(j+1) == i || macAdrees.charAt(j+1) == k) && macAdrees.charAt(j+2) ==58 && macAdrees.length() == 18) {
 		this.macAdrees = macAdrees;
+		}
+		}
+		}
 	}
+		}
+
 
 	public String getIpFija() {
 		return ipFija;
 	}
 
 	public void setIpFija(String ipFija) {
-		this.ipFija = ipFija;
-	}
 
-	public String getPerifericos() {
+		try {
+	        if ( ipFija == null || ipFija.isEmpty() ) {
+	        	System.out.println("Inserte una Ip Fija valida");
+	        }
+
+	        String[] parts = ipFija.split( "\\." );
+	        if ( parts.length != 4 ) {
+	        	ipFija=null;
+	        }
+
+	        for ( String s : parts ) {
+	            int i = Integer.parseInt( s );
+	            if ( (i < 0) || (i > 255) ) {
+	            	ipFija=null;
+	            }
+	        }
+	        if ( ipFija.endsWith(".") ) {
+	        	ipFija=null;
+	        }
+
+	    } catch (NumberFormatException nfe) {
+	    	System.out.println("Ingrese una Ip valida");
+	    }this.ipFija = ipFija;
+	}
+		
+	
+
+	public boolean [] getPerifericos() {
 		return perifericos;
 	}
 
-	public void setPerifericos(String perifericos) {
-		this.perifericos = perifericos;
+	public void setPerifericos(boolean [] perifericos) {
+
+		this.ipFija = ipFija;
 	}
+
 
 	public String getObservaciones() {
 		return observaciones;
@@ -94,26 +160,16 @@ public class Computadora {
 		this.observaciones = observaciones;
 	}
 	
-	public void disponible() {
-		this.disponibilidad = true;
-	}
-	public void noDisponible() {
-		this.disponibilidad = false;
-	}
-	
-	public void conInternet() {
-		this.internet = true;
-	}
-	
-	public void sinInternet() {
-		this.internet = false;
-	}
+
+
+
 	
 	@Override
 	public String toString() {
 		return "Computadora [numInventario=" + numInventario + ", aplicaciones=" + Arrays.toString(aplicaciones)
 				+ ", internet=" + internet + ", macAdrees=" + macAdrees + ", ipFija=" + ipFija + ", perifericos="
-				+ perifericos + ", observaciones=" + observaciones + "]";
+				+ Arrays.toString(perifericos) + ", observaciones=" + observaciones + "]";
+
 	}
 
 }

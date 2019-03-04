@@ -25,6 +25,16 @@ public class Lista {
 		m.enlace = nuevo;
 		return this;
 	}
+	public Lista insertarAntesNodo(int x) {
+		Nodo nuevo = new Nodo(sc.nextInt());
+		Nodo m = primero;
+		while(x < m.getDato()) {
+			m = m.enlace;
+		}
+		nuevo.enlace=m.enlace;
+		m.enlace = nuevo;
+		return this;
+	}
 	
 	public Lista insertarCola() {
 		Nodo n;

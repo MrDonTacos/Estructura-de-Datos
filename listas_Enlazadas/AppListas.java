@@ -13,6 +13,8 @@ public class AppListas {
 		l.imprimirLista();
 		l.insertarDespuesNodo(2);
 		l.imprimirLista();
+		l.insertarAntesNodo(2);
+		l.imprimirLista();
 	}
 
 }

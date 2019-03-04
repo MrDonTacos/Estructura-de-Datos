@@ -1,20 +1,23 @@
 package listas_Enlazadas;
 
+	//Se podría decir que este es el TDA del nodo
 public class Nodo {
-
-	int dato;
-	Nodo enlace;
+							//El nodo consta de dos partes:
+	int dato;				//Un dato, que puede ser de cualquier tipo, por ejemplo aqui podría ir el dato Computadora del tda
+	Nodo enlace;			//Y un enlace, que es la parte que va a hacer unión con otros nodos
 	
 	public Nodo(int x) {	//Este contructor inicializa el dato int del Nodo, 
-		dato = x;			
-		enlace = null;		//Y el enlace hace referencia a null, es decir que el siguiente nodo no existe
+		dato = x;			//El dato recibe el parametro de x para inicializarlo
+		enlace = null;		//Y el enlace hace referencia a null, es decir creamos un nodo que apunta al vacío
 	}
 	
 	public Nodo(int x, Nodo n) {	//Colocamos en los parametro el dato y un Nodo
-		dato = x;					
-		enlace = n;					//Inicializamos el enlace de tal forma que referencia a un nodo, enlaza el nodo creado con otro nodo
+		dato = x;					//Inicializamos el dato, al igual que en el primer constructor
+		enlace = n;					//Pero en este también inicializamos el enlace, de tal forma que enlaza el nodo creado con otro nodo
 	}
 
+	
+	//Métodos generales para recibir los datos de las variables y para settearlos
 	public int getDato() {
 		return dato;
 	}

@@ -2,7 +2,7 @@ package listas_Enlazadas;
 import java.util.Scanner;
 public class Lista {
 	Scanner sc = new Scanner(System.in);	//Usamos Scanner para que usuario pueda ingresar los datos que quiera en los nodos
-	private Nodo primero;				//Inicializamos un nodo en la lista, que va servir como el Auxiliar, en este caso lo llame priemro
+	protected Nodo primero;				//Inicializamos un nodo en la lista, que va servir como el Auxiliar, en este caso lo llame priemro
 	
 	public Lista() {					//Constructor para crear una lista vacía
 		primero = null;					//Inicializamos el primer nodo a null, esto quiere decir que se crea una lista vacía 

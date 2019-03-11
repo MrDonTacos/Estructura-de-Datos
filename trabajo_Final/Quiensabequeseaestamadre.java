@@ -14,7 +14,6 @@ public class Quiensabequeseaestamadre {
 	
 	for (int j = 0; j < a.length; j++) {
 		a [j] = new Computadora();
-		a[j].set
 	}
 	lab01.setComputadora(a);
 	System.out.println(lab01.toString());

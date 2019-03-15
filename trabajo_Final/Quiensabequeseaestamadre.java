@@ -1,5 +1,6 @@
 package trabajo_Final;
 
+import java.io.IOException;
 
 public class Quiensabequeseaestamadre {
 	
@@ -20,20 +21,38 @@ public class Quiensabequeseaestamadre {
 	for (int j = 0; j < a.length; j++) {
 		a [j] = new Computadora();
 		c [j] = new Computadora();
-		c [j].setNumInventario(strAleatorio.numInventarioAleatoria(15));
-		a [j].setNumInventario(strAleatorio.numInventarioAleatoria(15));
-		try{a [j].setIpFija(strAleatorio.numIp(10));} catch (Exception IOException) {
-			System.out.println("null");
+		try{c [j].setNumInventario(strAleatorio.numInventarioAleatoria(15));
+		a [j].setNumInventario(strAleatorio.numInventarioAleatoria(15));}catch (Exception IOException) {}
+		try{a [j].setIpFija(strAleatorio.numIp());
+		c [j].setIpFija(strAleatorio.numIp());} catch (Exception IOException) {
 		}
+		try {a [j].setMacAdrees(strAleatorio.numMacAdress());
+		c [j].setMacAdrees(strAleatorio.numMacAdress());
+		} catch (Exception IOExecption) {
+			// TODO: handle exception
+		}
+		
 	}
 	for (int i = 0; i < b.length; i++) {
 		b [i]= new Computadora();
 		d[i] = new Computadora();
 		e[i] = new Computadora();
-		d[i].setNumInventario(strAleatorio.numInventarioAleatoria(15));
-		e[i].setNumInventario(strAleatorio.numInventarioAleatoria(15));
-		b[i].setNumInventario(strAleatorio.numInventarioAleatoria(15));
-	}
+		try{	d[i].setNumInventario(strAleatorio.numInventarioAleatoria(15));
+				e[i].setNumInventario(strAleatorio.numInventarioAleatoria(15));
+				b[i].setNumInventario(strAleatorio.numInventarioAleatoria(15));
+				}catch (Exception IOException) {
+				}
+	try {	d[i].setIpFija(strAleatorio.numIp());
+			e[i].setIpFija(strAleatorio.numIp());
+			b[i].setIpFija(strAleatorio.numIp());
+			}catch (Exception IOException){
+			}
+	try {b [i].setMacAdrees(strAleatorio.numMacAdress());
+	d [i].setMacAdrees(strAleatorio.numMacAdress());
+	e [i].setMacAdrees(strAleatorio.numMacAdress());
+	} catch (Exception IOException) {
+		// TODO: handle exception
+	}}
 	lab01.setComputadora(a);
 	lab02.setComputadora(b);
 	lab03.setComputadora(c);
@@ -44,4 +63,4 @@ public class Quiensabequeseaestamadre {
 }
 
 }
-
+	

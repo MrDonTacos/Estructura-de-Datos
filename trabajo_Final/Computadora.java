@@ -37,7 +37,7 @@ public class Computadora {
 		return numInventario;
 	}
 
-	public void setNumInventario(String numInventario){
+	public void setNumInventario(String numInventario) throws IOException{
 
 		
 		
@@ -94,13 +94,13 @@ public class Computadora {
 		return macAdrees;
 	}
 
-	public void setMacAdrees(String macAdrees) {
+	public void setMacAdrees(String macAdrees) throws IOException{
 
 		macAdrees.toUpperCase();
-		for(int j = 0;j<=17;j+=3) {
+		for(int j = 0;j<=15;j+=3) {
 		for(char i=65; i<=70; i++) {
 			for(char k=48;k<=57;k++) {
-		if((macAdrees.charAt(j) == i || macAdrees.charAt(j) == k) && (macAdrees.charAt(j+1) == i || macAdrees.charAt(j+1) == k) && macAdrees.charAt(j+2) ==58 && macAdrees.length() == 18) {
+		if((macAdrees.charAt(j) == i || macAdrees.charAt(j) == k) && (macAdrees.charAt(j+1) == i || macAdrees.charAt(j+1) == k) &&macAdrees.charAt(j+2) ==58 && macAdrees.length() == 17) {
 		this.macAdrees = macAdrees;
 		}
 		}
@@ -118,21 +118,25 @@ public class Computadora {
 		
 	        if ( ipFija == null || ipFija.isEmpty() ) {
 	        	ipFija=null;
+	        	
 	        }
 
 	        String[] parts = ipFija.split( "\\." );
 	        if ( parts.length != 4 ) {
 	        	ipFija=null;
+	        	
 	        }
 
 	        for ( String s : parts ) {
 	            int i = Integer.parseInt( s );
 	            if ( (i < 0) || (i > 255) ) {
 	            	ipFija=null;
+	            	
 	            }
 	        }
 	        if ( ipFija.endsWith(".") ) {
 	        	ipFija=null;
+	        	
 	        }
 
 	        this.ipFija = ipFija;

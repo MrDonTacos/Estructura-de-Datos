@@ -96,12 +96,15 @@ public class Computadora {
 
 	public void setMacAdrees(String macAdrees) throws IOException{
 
-		macAdrees.toUpperCase();
-		for(int j = 0;j<=15;j+=3) {
+		this.macAdrees = macAdrees.toUpperCase();
+		for(int j = 0;j<=16;j+=3) {
 		for(char i=65; i<=70; i++) {
 			for(char k=48;k<=57;k++) {
-		if((macAdrees.charAt(j) == i || macAdrees.charAt(j) == k) && (macAdrees.charAt(j+1) == i || macAdrees.charAt(j+1) == k) &&macAdrees.charAt(j+2) ==58 && macAdrees.length() == 17) {
+		if((j<15 &&macAdrees.charAt(j) == i || macAdrees.charAt(j) == k) && (macAdrees.charAt(j+1) == i || macAdrees.charAt(j+1) == k) &&macAdrees.charAt(j+2) ==58 && macAdrees.length() == 17) {
 		this.macAdrees = macAdrees;
+		}
+		else if (j==15 && (macAdrees.charAt(j) == i || macAdrees.charAt(j) == k) && (macAdrees.charAt(j+1) == i || macAdrees.charAt(j+1) == k) && macAdrees.length() == 17){
+			this.macAdrees = macAdrees;
 		}
 		}
 		}
@@ -173,5 +176,4 @@ public class Computadora {
 				+ Arrays.toString(perifericos) + ", observaciones=" + observaciones + "]";
 
 	}
-
 }

@@ -3,7 +3,6 @@ import java.util.Random;
 public class STRA {
 	Random r = new Random();
 	private final static String STRING_NUM_INVENTARIO = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-	private final static String STRING_IP_ESTATICA = "01234567890.";
 	
 	public  String numInventarioAleatoria(int count) {
 		StringBuilder builder = new StringBuilder();
@@ -38,6 +37,3 @@ public class STRA {
 		    return sb.toString();
 		}
 	}
-	
-	
-	

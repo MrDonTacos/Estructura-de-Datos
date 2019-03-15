@@ -1,5 +1,6 @@
 package trabajo_Final;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 public class Computadora {
@@ -36,7 +37,7 @@ public class Computadora {
 		return numInventario;
 	}
 
-	public void setNumInventario(String numInventario) {
+	public void setNumInventario(String numInventario){
 
 		
 		
@@ -108,15 +109,15 @@ public class Computadora {
 		}
 
 
-	public String getIpFija() {
+	public String getIpFija()  {
 		return ipFija;
 	}
 
-	public void setIpFija(String ipFija) {
+	public void setIpFija (String ipFija) throws IOException{
 
-		try {
+		
 	        if ( ipFija == null || ipFija.isEmpty() ) {
-	        	//System.out.println("Inserte una Ip Fija valida");
+	        	ipFija=null;
 	        }
 
 	        String[] parts = ipFija.split( "\\." );
@@ -134,9 +135,7 @@ public class Computadora {
 	        	ipFija=null;
 	        }
 
-	    } catch (NumberFormatException nfe) {
-	    	System.out.println("Ingrese una Ip valida");
-	    }this.ipFija = ipFija;
+	        this.ipFija = ipFija;
 	}
 		
 	

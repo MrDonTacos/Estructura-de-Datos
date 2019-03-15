@@ -20,17 +20,19 @@ public class Quiensabequeseaestamadre {
 	for (int j = 0; j < a.length; j++) {
 		a [j] = new Computadora();
 		c [j] = new Computadora();
-		c [j].setNumInventario(strAleatorio.randomString(15,"ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"));
-		a [j].setNumInventario(strAleatorio.randomString(15,"ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"));
-		a [j].setNumInventario(strAleatorio.randomString(10, "123456789."));
+		c [j].setNumInventario(strAleatorio.numInventarioAleatoria(15));
+		a [j].setNumInventario(strAleatorio.numInventarioAleatoria(15));
+		try{a [j].setIpFija(strAleatorio.numIp(10));} catch (Exception IOException) {
+			System.out.println("null");
+		}
 	}
 	for (int i = 0; i < b.length; i++) {
 		b [i]= new Computadora();
 		d[i] = new Computadora();
 		e[i] = new Computadora();
-		d[i].setNumInventario(strAleatorio.randomString(15,"ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"));
-		e[i].setNumInventario(strAleatorio.randomString(15,"ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"));
-		b[i].setNumInventario(strAleatorio.randomString(15,"ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"));
+		d[i].setNumInventario(strAleatorio.numInventarioAleatoria(15));
+		e[i].setNumInventario(strAleatorio.numInventarioAleatoria(15));
+		b[i].setNumInventario(strAleatorio.numInventarioAleatoria(15));
 	}
 	lab01.setComputadora(a);
 	lab02.setComputadora(b);

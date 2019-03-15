@@ -45,7 +45,7 @@ public class Computadora {
 		   
 		} 
 		else {
-			System.out.println("Inserta un n�mero valido.");
+			//System.out.println("Inserta un n�mero valido.");
 		}
 		}
 	
@@ -116,7 +116,7 @@ public class Computadora {
 
 		try {
 	        if ( ipFija == null || ipFija.isEmpty() ) {
-	        	System.out.println("Inserte una Ip Fija valida");
+	        	//System.out.println("Inserte una Ip Fija valida");
 	        }
 
 	        String[] parts = ipFija.split( "\\." );

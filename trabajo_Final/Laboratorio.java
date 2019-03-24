@@ -5,11 +5,20 @@ import java.util.Arrays;
 public class Laboratorio {
 	private boolean internet;
 	private Computadora computadora[];
-	private int numlaboratorio;
+	private int numLaboratorio;
 	private int horario[];
+	private boolean disponibilidad;
 	
+	public boolean getDisponibilidad() {
+		return disponibilidad;
+	}
+
+	public void setDisponibilidad(boolean disponibilidad) {
+		this.disponibilidad = disponibilidad;
+	}
+
 	public Laboratorio(int numLaboratorio) {
-		this.numlaboratorio = numLaboratorio;
+		this.numLaboratorio = numLaboratorio;
 		internet = true;
 		horario = new int[9];
 		}
@@ -31,11 +40,11 @@ public class Laboratorio {
 	}
 
 	public int getNumlaboratorio() {
-		return numlaboratorio;
+		return numLaboratorio;
 	}
 
 	public void setNumlaboratorio(int numlaboratorio) {
-		this.numlaboratorio = numlaboratorio;
+		this.numLaboratorio = numlaboratorio;
 	}
 
 	public int[] getHorario() {
@@ -45,11 +54,12 @@ public class Laboratorio {
 	public void setHorario(int[] horario) {
 		this.horario = horario;
 	}
+	
 
 	@Override
 	public String toString() {
-		return "Laboratorio [internet=" + internet + ", computadora=" + Arrays.toString(computadora)
-				+ ", numlaboratorio=" + numlaboratorio + ", horario=" + Arrays.toString(horario) + "]\n";
+		return "Laboratorio " + numLaboratorio + ", Disponibilidad: " + disponibilidad + "\n[internet=" + internet + ", computadora=" + Arrays.toString(computadora)
+				+ ", horario=" + Arrays.toString(horario) + "]\n";
 	}
 	}
 

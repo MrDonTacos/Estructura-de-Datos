@@ -61,7 +61,7 @@ public class Computadora {
 		for (int i = 0; i < aplicaciones.length; i++) {
 		for (int j = i+1; j < aplicaciones.length; j++) {
 			if(aplicaciones[i].equals(aplicaciones[j])) {
-				System.out.println("Tu aplicaci�n " + aplicaciones[i]+  " est� repetida con la aplicacion " + aplicaciones[j]);
+				//System.out.println("Tu aplicaci�n " + aplicaciones[i]+  " est� repetida con la aplicacion " + aplicaciones[j]);
 				aplicaciones[i] = null;
 			}else {this.aplicaciones = aplicaciones;}
 		}
@@ -97,18 +97,15 @@ public class Computadora {
 	public void setMacAdrees(String macAdrees) throws IOException{
 
 		this.macAdrees = macAdrees.toUpperCase();
-		for(int j = 0;j<=16;j+=3) {
-		for(char i=65; i<=70; i++) {
-			for(char k=48;k<=57;k++) {
-		if((j<15 &&macAdrees.charAt(j) == i || macAdrees.charAt(j) == k) && (macAdrees.charAt(j+1) == i || macAdrees.charAt(j+1) == k) &&macAdrees.charAt(j+2) ==58 && macAdrees.length() == 17) {
-		this.macAdrees = macAdrees;
-		}
-		else if (j==15 && (macAdrees.charAt(j) == i || macAdrees.charAt(j) == k) && (macAdrees.charAt(j+1) == i || macAdrees.charAt(j+1) == k) && macAdrees.length() == 17){
-			this.macAdrees = macAdrees;
-		}
-		}
-		}
-	}
+		
+
+                       
+
+if(macAdrees.matches(".[A-F].") && macAdrees.matches(".[0-9].") && macAdrees.matches("[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}") && macAdrees.length() == 17) {
+               this.macAdrees = macAdrees;
+
+              }
+            
 		}
 
 
@@ -176,4 +173,5 @@ public class Computadora {
 				+ Arrays.toString(perifericos) + ", observaciones=" + observaciones + "]";
 
 	}
+
 }

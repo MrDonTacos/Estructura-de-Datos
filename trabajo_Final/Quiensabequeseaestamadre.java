@@ -19,22 +19,31 @@ public class Quiensabequeseaestamadre {
 	Laboratorio lab05 = new Laboratorio(05);
 	
 	for (int j = 0; j < a.length; j++) {
-		a [j] = new Computadora();
-		c [j] = new Computadora();
-		try{c [j].setNumInventario(strAleatorio.numInventarioAleatoria(15));
-		a [j].setNumInventario(strAleatorio.numInventarioAleatoria(15));}catch (Exception IOException) {}
-		try{a [j].setIpFija(strAleatorio.numIp());
-		c [j].setIpFija(strAleatorio.numIp());} catch (Exception IOException) {
+			a [j] = new Computadora("AutoCad");
+			c [j] = new Computadora();
+		
+		try{
+			c [j].setNumInventario(strAleatorio.numInventarioAleatoria(15));
+			a [j].setNumInventario(strAleatorio.numInventarioAleatoria(15));}catch (Exception IOException) {}
+		
+		try{
+			a [j].setIpFija(strAleatorio.numIp());
+			c [j].setIpFija(strAleatorio.numIp());} catch (Exception IOException) {
 		}
-		try {a [j].setMacAdrees(strAleatorio.numMacAdress());
-		c [j].setMacAdrees(strAleatorio.numMacAdress());
-		} catch (Exception IOExecption) {
+		
+		try {
+			a [j].setMacAdrees(strAleatorio.numMacAdress());
+			c [j].setMacAdrees(strAleatorio.numMacAdress());
+		} 
+		
+		catch (Exception IOExecption) {
 			// TODO: handle exception
 		}
 		
+		
 	}
 	for (int i = 0; i < b.length; i++) {
-		b [i]= new Computadora();
+		b [i]= new Computadora("Labview");
 		d[i] = new Computadora();
 		e[i] = new Computadora();
 		try{	d[i].setNumInventario(strAleatorio.numInventarioAleatoria(15));
@@ -59,7 +68,19 @@ public class Quiensabequeseaestamadre {
 	lab04.setComputadora(d);
 	lab05.setComputadora(e);
 	
-	System.out.println(lab01.toString() + "\n" + lab02.toString() + "\n" + lab03.toString() + "\n" + lab04.toString() + "\n" + lab05.toString());
-}
+	//System.out.println(lab01.toString() + "\n" + lab02.toString() + "\n" + lab03.toString() + "\n" + lab04.toString() + "\n" + lab05.toString());
 
+	Maestro m = new Maestro();
+	try {
+		m.setLaboratorio(lab01);
+	} catch (IOException e1) {
+		//SE VA A LA PILA 
+	}
+	System.out.println(m.toString());
+	Alumno g = new Alumno();
+
+	
+	}
+	
 }
+	

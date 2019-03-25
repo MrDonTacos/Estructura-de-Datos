@@ -5,53 +5,54 @@ public class Laboratorio {
 	private boolean internet;
 	private Computadora computadora[];
 	private int numLaboratorio;
-	private String horario[];
+	private int horario[];
 	private boolean disponibilidad;
 	
         public Laboratorio(){
             this.disponibilidad = true;
             this.internet = true;
-            this.horario = new String[9]; 
-            this.horario[0]="9-10";
-            this.horario[1]="10-11";
-            this.horario[2]="11-12";
-            this.horario[3]="12-13";
-            this.horario[4]="13-14";
-            this.horario[5]="14-15";
-            this.horario[6]="15-16";
-            this.horario[7]="16-17";
-            this.horario[8]="17-18";
+            this.horario = new int[9]; 
+            this.horario[0]=1;
+            this.horario[1]=2;
+            this.horario[2]=3;
+            this.horario[3]=4;
+            this.horario[4]=5;
+            this.horario[5]=6;
+            this.horario[6]=7;
+            this.horario[7]=8;
+            this.horario[8]=9;
             
         }
         
          public Laboratorio(String[] horario){
-            this.disponibilidad = true;
-            this.internet = true;
-            this.horario = new String[9]; 
-            this.horario[0]="9-10";
-            this.horario[1]="10-11";
-            this.horario[2]="11-12";
-            this.horario[3]="12-13";
-            this.horario[4]="13-14";
-            this.horario[5]="14-15";
-            this.horario[6]="15-16";
-            this.horario[7]="16-17";
-            this.horario[8]="17-18";
+        	 this.disponibilidad = true;
+             this.internet = true;
+             this.horario = new int[9]; 
+             this.horario[0]=1;
+             this.horario[1]=2;
+             this.horario[2]=3;
+             this.horario[3]=4;
+             this.horario[4]=5;
+             this.horario[5]=6;
+             this.horario[6]=7;
+             this.horario[7]=8;
+             this.horario[8]=9;
         }
          
          public Laboratorio(int numLaboratorio) {
-     		this.disponibilidad = true;
+        	 this.numLaboratorio = numLaboratorio;
+        	 this.disponibilidad = true;
              this.internet = true;
-             this.horario = new String[9]; 
-             this.horario[0]="9-10";
-             this.horario[1]="10-11";
-             this.horario[2]="11-12";
-             this.horario[3]="12-13";
-             this.horario[4]="13-14";
-             this.horario[5]="14-15";
-             this.horario[6]="15-16";
-             this.horario[7]="16-17";
-             this.horario[8]="17-18";
+             this.horario = new int[9]; 
+             this.horario[0]=1;
+             this.horario[1]=2;
+             this.horario[2]=3;
+             this.horario[3]=4;
+             this.horario[4]=5;
+             this.horario[5]=6;
+             this.horario[6]=7;
+             this.horario[7]=8;
+             this.horario[8]=9;
      		}
         
 	public boolean getDisponibilidad() {
@@ -88,20 +89,18 @@ public class Laboratorio {
 		this.numLaboratorio = numlaboratorio;
 	}
 
-	public String[] getHorario() {
+	public int[] getHorario() {
 		return horario;
 	}
+	
+	public void setHorario(int[] horario) {
+		this.horario = horario;
+	}
 
-	public void setHorario(String[] horario) {
-		         
-for (int i = 0; i < horario.length; i++) {
-		this.horario = horario;}
-		
-	}	
 	
 	@Override
 	public String toString() {
-		return "Laboratorio = " + numLaboratorio + ", Internet = "   + internet+ "\n" + Arrays.toString(computadora) + "\n" + ", horario = " + Arrays.toString(horario) + ", Disponibilidad= " + disponibilidad;
+		return "Laboratorio = " + numLaboratorio + ", Internet = "   + internet+ "\n" + Arrays.toString(computadora) + "\n" + ", horario = " + Arrays.toString(horario) + ", Disponibilidad " + disponibilidad;
 }
 
     }

@@ -17,10 +17,18 @@ public class Cola extends Lista{	//PEPSI = Primeras Entradas Primeras SalIdas
 	}
 	
 	public Cola insertarCola(Nodo x) {
+if(cola==null) {
+			
+			primero = x;
+			x.enlace = null;
+			cola = primero;
+		}else {
 		cola.enlace = x;
 		cola = x;
 		x.enlace = null;
-		return this;
+		
+		}
+return this;
 		}
 	
 	public Nodo quitar(){

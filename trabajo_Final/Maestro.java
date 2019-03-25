@@ -7,6 +7,10 @@ public class Maestro {
 	private String numEmpleado;
 	private Laboratorio laboratorio;
 
+	public Maestro(String numEmpleado) {
+		this.numEmpleado = numEmpleado;
+	}
+	
 	public Laboratorio getLaboratorio() {
 		return laboratorio;
 	}
@@ -15,9 +19,19 @@ public class Maestro {
 			laboratorio.setDisponibilidad(false);
 			this.laboratorio = laboratorio;
 			}else {
-				throw new NullPointerException("Laboratorio ocupado");
+				throw new NullPointerException();
 			}
 	}
+	public String getNumEmpleado() {
+		return numEmpleado;
+	}
+
+	public void setNumEmpleado(String numEmpleado) {
+		this.numEmpleado = numEmpleado;
+	}
+	
+	
+
 	@Override
 	public String toString() {
 		return "Maestro [numEmpleado=" + numEmpleado + ", laboratorio=" + laboratorio + "]";

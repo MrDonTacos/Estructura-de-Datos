@@ -68,7 +68,7 @@ public class Quiensabequeseaestamadre {
 	lab04.setComputadora(d);
 	lab05.setComputadora(e);
 	
-	//System.out.println(lab01.toString() + "\n" + lab02.toString() + "\n" + lab03.toString() + "\n" + lab04.toString() + "\n" + lab05.toString());
+	System.out.println(lab01.toString() + "\n" + lab02.toString() + "\n" + lab03.toString() + "\n" + lab04.toString() + "\n" + lab05.toString());
 
 	Maestro m = new Maestro();
 	try {
@@ -76,8 +76,8 @@ public class Quiensabequeseaestamadre {
 	} catch (IOException e1) {
 		//SE VA A LA PILA 
 	}
-	System.out.println(m.toString());
-	Alumno g = new Alumno();
+	//System.out.println(m.toString());
+	//Alumno g = new Alumno();
 
 	
 	}

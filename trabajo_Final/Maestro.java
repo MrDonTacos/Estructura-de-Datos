@@ -15,7 +15,7 @@ public class Maestro {
 			laboratorio.setDisponibilidad(false);
 			this.laboratorio = laboratorio;
 			}else {
-				
+				throw new NullPointerException("Laboratorio ocupado");
 			}
 	}
 	@Override

@@ -101,7 +101,7 @@ for (int i = 0; i < horario.length; i++) {
 	
 	@Override
 	public String toString() {
-		return "Laboratorio = " + numLaboratorio + ", Internet = "   + internet+ "\n" + Arrays.toString(computadora) + "\n" + ", horario = " + Arrays.toString(horario);
+		return "Laboratorio = " + numLaboratorio + ", Internet = "   + internet+ "\n" + Arrays.toString(computadora) + "\n" + ", horario = " + Arrays.toString(horario) + ", Disponibilidad= " + disponibilidad;
 }
 
     }

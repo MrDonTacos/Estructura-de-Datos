@@ -6,6 +6,7 @@ public class Quiensabequeseaestamadre {
 	
 	
 	public static void main(String []args) {
+		Cola cola;
 		STRA strAleatorio = new STRA();
 		Computadora a[] = new Computadora[50];
 		Computadora b[] = new Computadora[35];
@@ -68,16 +69,40 @@ public class Quiensabequeseaestamadre {
 	lab04.setComputadora(d);
 	lab05.setComputadora(e);
 	
-	System.out.println(lab01.toString() + "\n" + lab02.toString() + "\n" + lab03.toString() + "\n" + lab04.toString() + "\n" + lab05.toString());
-
-	Maestro m = new Maestro();
+	//System.out.println(lab01.toString() + "\n" + lab02.toString() + "\n" + lab03.toString() + "\n" + lab04.toString() + "\n" + lab05.toString());
+	
+	Maestro uno = new Maestro();
+	Nodo maestro1 = new Nodo(uno);
+	cola = new Cola(maestro1);
+	Maestro dos = new Maestro();
+	Nodo maestro2 = new Nodo(dos);
+	cola.insertarCola(maestro2);
+	Maestro tres = new Maestro();
+	Nodo maestro3 = new Nodo(tres);
+	cola.insertarCola(maestro3);
+	
+	System.out.println("Cola de maestros: ");
+	cola.imprimirLista();
+	
 	try {
-		m.setLaboratorio(lab01);
+		cola.quitar().getDato().setLaboratorio(lab01);
 	} catch (IOException e1) {
-		//SE VA A LA PILA 
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
 	}
-	//System.out.println(m.toString());
-	//Alumno g = new Alumno();
+	
+	System.out.println(uno);
+	
+	try {
+		cola.quitar().getDato().setLaboratorio(lab01);
+	} catch (Exception e2) {
+		// TODO: handle exception
+		e2.printStackTrace();
+	}
+	
+	
+	//System.out.println(dos);
+
 
 	
 	}

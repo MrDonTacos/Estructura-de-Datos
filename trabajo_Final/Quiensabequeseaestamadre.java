@@ -78,8 +78,10 @@ public class Quiensabequeseaestamadre {
 
 	
 	//System.out.println(lab01.toString() + "\n" + lab02.toString() + "\n" + lab03.toString() + "\n" + lab04.toString() + "\n" + lab05.toString());
-	int aleatorio =rd.nextInt(100)+1; 
-	switch (aleatorio) { //Lo que está dentro del switch, te va a arrojar un número del 1-100, y lo vamos a trabajar como un número de porcentaje 100%
+	for(int i = 0; i<9; i++) {
+		int x =0;
+	while(x ==0) {
+	switch (rd.nextInt(100)+1) { //Lo que está dentro del switch, te va a arrojar un número del 1-100, y lo vamos a trabajar como un número de porcentaje 100%
 	case 1:	case 2:	case 3:	case 4:	case 5:	case 6:	
 	case 7:	case 8:	case 9:	case 10: case 11: case 12:
 	case 13: case 14: case 15: case 16: case 17: case 18:	
@@ -119,13 +121,14 @@ public class Quiensabequeseaestamadre {
 		
 	case 92 : case 93 : case 94 : case 95 :
 	case 96: case 97 : case 98 : case 99 : case 100 :	
-			//Aquí va el código del cambio de hora					8%	[92-100]
+			x +=1;//Aquí va el código del cambio de hora					8%	[92-100]
 		break;
 	}
 	
 	
 	
-
+	}
+	}
 	}
 	}
 

@@ -67,6 +67,7 @@ public class Quiensabequeseaestamadre {
 	} catch (Exception IOException) {
 		// TODO: handle exception
 	}}
+	Computadora todasComputadoras[][] = {a,b,c,d,e};
 	lab01.setComputadora(a);
 	lab02.setComputadora(b);
 	lab03.setComputadora(c);
@@ -77,150 +78,55 @@ public class Quiensabequeseaestamadre {
 
 	
 	//System.out.println(lab01.toString() + "\n" + lab02.toString() + "\n" + lab03.toString() + "\n" + lab04.toString() + "\n" + lab05.toString());
-	Maestro uno = new Maestro("1");
-	Maestro dos = new Maestro("2");
-	Maestro tres = new Maestro("3");
-	Maestro cuatro = new Maestro("4");
-	Maestro cinco = new Maestro("5");
-	Maestro[]arregloMaestros = {uno,dos,tres,cuatro,cinco};
-	Nodo[] nodos = new Nodo[5];
-	for (int i = 0; i < arregloMaestros.length; i++) {
-		nodos[i] = new Nodo(arregloMaestros[i]);
-		cola.insertarCola(nodos[i]);
+	int aleatorio =rd.nextInt(100)+1; 
+	switch (aleatorio) { //Lo que está dentro del switch, te va a arrojar un número del 1-100, y lo vamos a trabajar como un número de porcentaje 100%
+	case 1:	case 2:	case 3:	case 4:	case 5:	case 6:	
+	case 7:	case 8:	case 9:	case 10: case 11: case 12:
+	case 13: case 14: case 15: case 16: case 17: case 18:	
+	case 19: case 20: case 21: case 22:	case 23: case 24:	
+		//Aquí va el código para la llegada de los alumnos 			24% [1-24]
+		
+		break;	
+	
+	case 25: case 26 : case 27 : case 28 : case 29 : case 30 : 
+	case 31 : case 32: case 33 : case 34 : case 35 : case 36 : 
+	case 37 : case 38 : case 39 : case 40 : case 41  :case 42 : 
+	case 43 : case 44  :
+			//Aquí va el código de llegada del profe 				19% [25-44]
+		break;
+		
+		
+		
+	 case 45: case 46 : case 47 : case 48 : case 49: case 50 : case 51 : 
+	 case 52 : case 53 : case 54 : case 55 : case 56 : case 57  :case 58 : 
+	 case 59 : case 60 : case 61 : case 62 : case 63 : case 64 :
+			//Aquí va el código de la salida del alumno 			24% [45-64]
+		 break;
+		 
+		 
+		 
+	case 65: case 66: case 67: case 68: case 69: case 70: case 71: 
+	case 72: case 73: case 74 : case 75: case 76: case 77: case 78:
+			todasComputadoras[rd.nextInt(5)][rd.nextInt(35)].setFuncionalidad(false);//¿Qué computadora se descompuso?
+			System.out.println(lab01.toString() + "\n" + lab02.toString() + "\n" + lab03.toString() + "\n" + lab04.toString() + "\n" + lab05.toString());
+			//Aquí va el código de descomponerse una computadora 	13% [65-78]
+		break;
+		
+	case 79: case 80: case 81: case 82: case 84: case 85: 
+	case 86: case 87: case 88: case 89: case 90: case 91:
+			//Aquí va el código para Reparar una computadora 		12% [79-91]
+		break;
+		
+	case 92 : case 93 : case 94 : case 95 :
+	case 96: case 97 : case 98 : case 99 : case 100 :	
+			//Aquí va el código del cambio de hora					8%	[92-100]
+		break;
 	}
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	for (int j = 0; j<2; j++) {
-	for (int i = 0; i < 5; i++) {
-		System.out.println("\nNúmero de empleado: "+ arregloMaestros[i].getNumEmpleado());
-	System.out.println("\nIngresar: Maestro = 0, Alumno = 1");
-	int x = rd.nextInt(1);
-	System.out.println(x);
-	if (x == 0) {
-		System.out.println("Escoga laboratorio 1, 2, 3, 4 o 5");
-		
-		int laboratorio = rd.nextInt(6);
-		System.out.println("Laboratorio escogido: " + laboratorio);
-		
-		System.out.println("\nEscoga horario de apartado: 1ro ,2do, 3ro, 4to, 5to, 6to, 7mo, 8vo, 9no");
-		int horario = rd.nextInt(9)+1;
-		System.out.println("El horario escogido fue: " + horario);
-		switch (laboratorio) {
-		case 0: System.out.println("El maestro no escogió laboratorio"); break;
-		case 1:
-			if(i != horario ) {
-				if (lab01.getDisponibilidad() == true) {
-					try {
-						cola.quitar().getDato().setLaboratorio(lab01);
-						break;
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				}else {
-					System.out.println("Siguiente laboratorio: 2");
-				}
-			}else {
-				System.out.println( "Hora incompatible");
-			}
-			
-		case 2:
-			if (lab02.getHorario()[i] != horario) {
-				if (lab02.getDisponibilidad() == true) {
-					try {
-						cola.quitar().getDato().setLaboratorio(lab02);
-						break;
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				}else {
-					System.out.println( "Siguiente laboratorio: 3");
-				}
-			}else {
-				System.out.println("Hora Incompatible");
-			}
-			
-			
-		case 3:
-			if (lab03.getHorario()[i] != horario) {
-				if (lab03.getDisponibilidad() == true) {
-					try {
-						cola.quitar().getDato().setLaboratorio(lab03);
-						break;
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				}else {
-					System.out.println( "Siguiente laboratorio: 4");
-				}
-			}else {
-				System.out.println("Hora incompatible");
-			}
-			
-			
-		case 4:
-			if (lab04.getHorario()[i] != horario) {
-				if (lab04.getDisponibilidad() == true) {
-					try {
-						cola.quitar().getDato().setLaboratorio(lab04);
-						break;
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				}else {
-					System.out.println("Siguiente laboratorio: 5");
-				}
-			}else {
-				System.out.println( "Hora incompatible");
-			}
-			
-			
-		case 5:
-			if (lab05.getHorario()[i] != horario) {
-				if (lab05.getDisponibilidad() == true) {
-					try {
-						cola.quitar().getDato().setLaboratorio(lab05);
-						break;
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				}else {
-					System.out.println();
-				}
-			}else {
-				System.out.println();
-			}
-			default: break;
-		
-		}
-		
-		}else {
-		
-	}
-	
-	}
-	//System.out.println(dos);
-		for (int i = 0; i < nodos.length; i++) {
-			
-		
-	System.out.println(arregloMaestros[i].toString());
-	
-	
-		}
+
 	}
 	}
-}
+
 	

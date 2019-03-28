@@ -14,6 +14,7 @@ public class Maestro {
 	public Laboratorio getLaboratorio() {
 		return laboratorio;
 	}
+	
 	public void setLaboratorio(Laboratorio laboratorio) throws IOException{
 		if(laboratorio.getDisponibilidad()==true) {
 			laboratorio.setDisponibilidad(false);
@@ -22,6 +23,11 @@ public class Maestro {
 				throw new NullPointerException();
 			}
 	}
+	
+	public Laboratorio apartarLaboratorio(Laboratorio numLaboratorio, int hora) {
+		return numLaboratorio;
+	}
+	
 	public String getNumEmpleado() {
 		return numEmpleado;
 	}

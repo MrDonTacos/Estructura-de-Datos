@@ -7,7 +7,7 @@ public class Quiensabequeseaestamadre {
 	
 	
 	public static void main(String []args) {
-		Random rd = new Random();
+		Random rd = new Random(System.currentTimeMillis());
 		Cola cola = new Cola();
 		Pila p = new Pila();
 		STRA strAleatorio = new STRA();
@@ -95,6 +95,8 @@ public class Quiensabequeseaestamadre {
 	case 37 : case 38 : case 39 : case 40 : case 41  :case 42 : 
 	case 43 : case 44  :
 			//Aquí va el código de llegada del profe 				19% [25-44]
+			cola.insertarCola(new Nodo(new Maestro(strAleatorio.numInventarioAleatoria(10))));
+			System.out.println(cola.quitar().getDato().getNumEmpleado());
 		break;
 		
 		
@@ -108,20 +110,34 @@ public class Quiensabequeseaestamadre {
 		 
 		 
 	case 65: case 66: case 67: case 68: case 69: case 70: case 71: 
-	case 72: case 73: case 74 : case 75: case 76: case 77: case 78:
+	case 72: case 73: case 74 : 
 			todasComputadoras[rd.nextInt(5)][rd.nextInt(35)].setFuncionalidad(false);//¿Qué computadora se descompuso?
-			System.out.println(lab01.toString() + "\n" + lab02.toString() + "\n" + lab03.toString() + "\n" + lab04.toString() + "\n" + lab05.toString());
-			//Aquí va el código de descomponerse una computadora 	13% [65-78]
+			for (int j = 0; j < 5; j++) {
+				for (int j2 = 0; j2 < 35; j2++) {
+					if(todasComputadoras[j][j2].isFuncionalidad() != true) {
+						//System.out.println("Tu computadora con núm de inventario: " + j +" "+ j2 +"  " + todasComputadoras[j][j2].getNumInventario() + " se descompuso");
+					}
+				}
+			}//Aquí va el código de descomponerse una computadora 	13% [65-78]
 		break;
 		
+	case 75: case 76: case 77: case 78:
 	case 79: case 80: case 81: case 82: case 84: case 85: 
 	case 86: case 87: case 88: case 89: case 90: case 91:
-			//Aquí va el código para Reparar una computadora 		12% [79-91]
+		for (int j = 0; j < 5; j++) {
+			for (int j2 = 0; j2 < 35; j2++) {
+				if(todasComputadoras[j][j2].isFuncionalidad() != true) {
+					todasComputadoras[j][j2].setFuncionalidad(true);
+					//System.out.println("Tu computadora con núm de inventario: " + j + " " + j2 + "  "+ todasComputadoras[j][j2].getNumInventario() + " fue reparada");
+				}
+			}
+		}
+		//Aquí va el código para Reparar una computadora 		12% [79-91]
 		break;
 		
 	case 92 : case 93 : case 94 : case 95 :
 	case 96: case 97 : case 98 : case 99 : case 100 :	
-			x +=1;//Aquí va el código del cambio de hora					8%	[92-100]
+			x +=1;//Aquí va el código del cambio de hora			8%	[92-100]
 		break;
 	}
 	

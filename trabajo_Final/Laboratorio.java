@@ -6,71 +6,24 @@ public class Laboratorio {
 	private boolean internet;
 	private Computadora computadora[];
 	private int numLaboratorio;
-	private int horario[];
-	private boolean disponibilidad;
-	
-		
-	
-        public Laboratorio(Computadora[] computadora) {
+	private boolean horario[];
+
+		public Laboratorio(Computadora[] computadora, int numLaboratorio) {
+        this.numLaboratorio = numLaboratorio;
 		this.computadora = computadora;
+          this.internet = true;
+          this.horario = new boolean[9]; 
+          this.horario[0]=false;
+          this.horario[1]=true;
+          this.horario[2]=true;
+          this.horario[3]=true;
+          this.horario[4]=true;
+          this.horario[5]=true;
+          this.horario[6]=true;
+          this.horario[7]=true;
+          this.horario[8]=false;
 	}
-
-		public Laboratorio(){
-            this.disponibilidad = true;
-            this.internet = true;
-            this.horario = new int[9]; 
-            this.horario[0]=1;
-            this.horario[1]=2;
-            this.horario[2]=3;
-            this.horario[3]=4;
-            this.horario[4]=5;
-            this.horario[5]=6;
-            this.horario[6]=7;
-            this.horario[7]=8;
-            this.horario[8]=9;
-            
-        }
         
-         public Laboratorio(String[] horario){
-        	 this.disponibilidad = true;
-             this.internet = true;
-             this.horario = new int[9]; 
-             this.horario[0]=1;
-             this.horario[1]=2;
-             this.horario[2]=3;
-             this.horario[3]=4;
-             this.horario[4]=5;
-             this.horario[5]=6;
-             this.horario[6]=7;
-             this.horario[7]=8;
-             this.horario[8]=9;
-        }
-         
-         public Laboratorio(int numLaboratorio) {
-        	 this.numLaboratorio = numLaboratorio;
-        	 this.disponibilidad = true;
-             this.internet = true;
-             this.horario = new int[9]; 
-             this.horario[0]=1;
-             this.horario[1]=2;
-             this.horario[2]=3;
-             this.horario[3]=4;
-             this.horario[4]=5;
-             this.horario[5]=6;
-             this.horario[6]=7;
-             this.horario[7]=8;
-             this.horario[8]=9;
-     		}
-        
-	public boolean getDisponibilidad() {
-		return disponibilidad;
-	}
-
-	public void setDisponibilidad(boolean disponibilidad) {
-		this.disponibilidad = disponibilidad;
-	}
-
-	
 
 	public boolean isInternet() {
 		return internet;
@@ -96,17 +49,10 @@ public class Laboratorio {
 		this.numLaboratorio = numlaboratorio;
 	}
 
-	public int[] getHorario() {
-		return horario;
-	}
-	
-	public void setHorario(int[] horario) {
-		this.horario = horario;
-	}
-	
-	public void llenadoComputadora(int numeroComputadora, int numLaboratorio) {
+
+	public void llenadoComputadora(int numeroComputadora) {
 		STRA strAleatorio = new STRA();
-		this.numLaboratorio = numLaboratorio;
+		
 		for (int j = 0; j <= numeroComputadora; j++) {
 			if(numLaboratorio == 0) {
 				computadora[j] = new Computadora("AutoCad", j);}
@@ -137,10 +83,25 @@ public class Laboratorio {
 		
 	}
 
-	
+   		public boolean[] getHorario() {
+   			return horario;
+   		}
+
+
+   		public void setHorario(boolean[] horario) {
+   			this.horario = horario;
+   		}
+   		
+   		public void cambiarHorario(int hora) {
+   			horario[hora] = false;
+   		}
+
+
 	@Override
 	public String toString() {
-		return "Laboratorio = " + numLaboratorio + ", Internet = "   + internet+ "\n" + Arrays.toString(computadora) + "\n" + ", horario = " + Arrays.toString(horario) + ", Disponibilidad " + disponibilidad;
+		return "Laboratorio [internet=" + internet + ", computadora=" + Arrays.toString(computadora)
+				+ ", numLaboratorio=" + numLaboratorio + ", horario=" + Arrays.toString(horario) + "]";
+	}
 }
-
-    }
+	
+	

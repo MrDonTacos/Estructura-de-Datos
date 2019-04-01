@@ -11,7 +11,7 @@ public class Computadora {
 	private boolean internet;
 	private String macAdrees;
 	private String ipFija;
-	private boolean perifericos[];
+	private String perifericos[];
 	private String observaciones;
 	private boolean funcionalidad;
 	private int numPC;
@@ -26,6 +26,9 @@ public class Computadora {
 		this.aplicaciones[0] = "Eclipse";
 		this.aplicaciones[1] = "MSOffice";
 		this.aplicaciones[2] = "MathLab";
+		this.perifericos = new String [2];
+        this.perifericos[0] = "Bocinas";
+        this.perifericos[1] = "Quemador de CD";
 		this.numInventario = "000000000000000";
 	}
 	
@@ -150,17 +153,16 @@ if(macAdrees.matches(".[A-F].") && macAdrees.matches(".[0-9].") && macAdrees.mat
 	        this.ipFija = ipFija;
 	}
 		
+		public String [] getPerifericos() {
+			return perifericos;
+		}
+
 	
+		public void setPerifericos(String[] perifericos) {
 
-	public boolean [] getPerifericos() {
-		return perifericos;
-	}
-
-	public void setPerifericos(boolean [] perifericos) {
-
-		this.ipFija = ipFija;
-	}
-
+			for (int i = 0; i < perifericos.length; i++) {
+				this.perifericos = perifericos;}
+		}
 
 	public String getObservaciones() {
 		return observaciones;

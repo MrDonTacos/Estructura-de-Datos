@@ -17,16 +17,14 @@ public class Cola extends Lista{	//PEPSI = Primeras Entradas Primeras SalIdas
 	}
 	
 	public Cola insertarCola(Nodo x) {
-if(cola==null) {
+		if(cola==null) {
 			
 			primero = x;
-			x.enlace = null;
+			primero.enlace = null;
 			cola = primero;
 		}else {
-		cola.enlace = x;
-		cola = x;
-		x.enlace = null;
-		
+			cola = x;
+			cola.enlace = null;	
 		}
 return this;
 		}
@@ -34,7 +32,7 @@ return this;
 	public Nodo quitar(){
 		Nodo n;
 		if(cola==null) {
-			throw new NullPointerException("Error de bajo flujo");
+			return null;
 		}
 		n= primero;
 		primero = primero.enlace;

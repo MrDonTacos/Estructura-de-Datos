@@ -4,11 +4,11 @@ import java.io.IOException;
 
 public class Maestro {
 	
-	private String numEmpleado;
+
 	private Laboratorio laboratorio;
 
-	public Maestro(String numEmpleado) {
-		this.numEmpleado = numEmpleado;
+	public Maestro() {
+		
 	}
 	
 	public Laboratorio getLaboratorio() {
@@ -28,19 +28,11 @@ public class Maestro {
 		return numLaboratorio;
 	}
 	
-	public String getNumEmpleado() {
-		return numEmpleado;
-	}
-
-	public void setNumEmpleado(String numEmpleado) {
-		this.numEmpleado = numEmpleado;
-	}
-	
 	
 
 	@Override
 	public String toString() {
-		return "Maestro [numEmpleado=" + numEmpleado + ", laboratorio=" + laboratorio + "]";
+		return "Maestro   " + "laboratorio=" + laboratorio + "]";
 	}
 	
 }

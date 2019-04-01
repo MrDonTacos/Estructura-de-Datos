@@ -1,4 +1,5 @@
 package trabajo_Final;
+import java.io.IOException;
 import java.util.Arrays;
 
 public class Laboratorio {
@@ -8,7 +9,13 @@ public class Laboratorio {
 	private int horario[];
 	private boolean disponibilidad;
 	
-        public Laboratorio(){
+		
+	
+        public Laboratorio(Computadora[] computadora) {
+		this.computadora = computadora;
+	}
+
+		public Laboratorio(){
             this.disponibilidad = true;
             this.internet = true;
             this.horario = new int[9]; 
@@ -95,6 +102,39 @@ public class Laboratorio {
 	
 	public void setHorario(int[] horario) {
 		this.horario = horario;
+	}
+	
+	public void llenadoComputadora(int numeroComputadora, int numLaboratorio) {
+		STRA strAleatorio = new STRA();
+		this.numLaboratorio = numLaboratorio;
+		for (int j = 0; j <= numeroComputadora; j++) {
+			if(numLaboratorio == 0) {
+				computadora[j] = new Computadora("AutoCad", j);}
+			else if(numLaboratorio ==1) {
+				computadora[j] = new Computadora("LabView", j);}
+			else {
+				computadora[j] = new Computadora(j);}
+		try{
+			computadora [j].setNumInventario(strAleatorio.numInventarioAleatoria(15));
+		}catch (Exception IOException) {}
+		
+		try{
+			computadora [j].setIpFija(strAleatorio.numIp());
+			} catch (Exception IOException) {
+		}
+		
+		try {
+			computadora [j].setMacAdrees(strAleatorio.numMacAdress());
+			
+		} 
+		
+		catch (Exception IOExecption) {
+			// TODO: handle exception
+		}
+		
+		
+	}
+		
 	}
 
 	

@@ -8,74 +8,34 @@ public class Quiensabequeseaestamadre {
 	
 	public static void main(String []args) {
 		Random rd = new Random(System.currentTimeMillis());
-		Cola cola = new Cola();
+		Cola maestros = new Cola();
+		Cola alumnos = new Cola();
 		Pila p = new Pila();
-		STRA strAleatorio = new STRA();
-		Computadora a[] = new Computadora[50];
-		Computadora b[] = new Computadora[35];
-		Computadora c[] = new Computadora[50];
-		Computadora d[] = new Computadora[35];
-		Computadora e[] = new Computadora[35];
-	Laboratorio lab01 = new Laboratorio(1);
-	Laboratorio lab02 = new Laboratorio(2);
-	Laboratorio lab03 = new Laboratorio(3);
-	Laboratorio lab04 = new Laboratorio(4);
-	Laboratorio lab05 = new Laboratorio(5);
-	Laboratorio todosLaboratorios[] = {lab01, lab02, lab03, lab04, lab05};
-	for (int j = 0; j < a.length; j++) {
-			a [j] = new Computadora("AutoCad");
-			c [j] = new Computadora();
 		
-		try{
-			c [j].setNumInventario(strAleatorio.numInventarioAleatoria(15));
-			a [j].setNumInventario(strAleatorio.numInventarioAleatoria(15));}catch (Exception IOException) {}
-		
-		try{
-			a [j].setIpFija(strAleatorio.numIp());
-			c [j].setIpFija(strAleatorio.numIp());} catch (Exception IOException) {
-		}
-		
-		try {
-			a [j].setMacAdrees(strAleatorio.numMacAdress());
-			c [j].setMacAdrees(strAleatorio.numMacAdress());
-		} 
-		
-		catch (Exception IOExecption) {
-			// TODO: handle exception
-		}
-		
-		
-	}
-	for (int i = 0; i < b.length; i++) {
-		b [i]= new Computadora("Labview");
-		d[i] = new Computadora();
-		e[i] = new Computadora();
-		try{	d[i].setNumInventario(strAleatorio.numInventarioAleatoria(15));
-				e[i].setNumInventario(strAleatorio.numInventarioAleatoria(15));
-				b[i].setNumInventario(strAleatorio.numInventarioAleatoria(15));
-				}catch (Exception IOException) {
-					System.out.println(IOException);
-				}
-	try {	d[i].setIpFija(strAleatorio.numIp());
-			e[i].setIpFija(strAleatorio.numIp());
-			b[i].setIpFija(strAleatorio.numIp());
-			}catch (Exception IOException){
-			}
-	try {b [i].setMacAdrees(strAleatorio.numMacAdress());
-	d [i].setMacAdrees(strAleatorio.numMacAdress());
-	e [i].setMacAdrees(strAleatorio.numMacAdress());
-	} catch (Exception IOException) {
-		// TODO: handle exception
-	}}
-	Computadora todasComputadoras[][] = {a,b,c,d,e};
-	lab01.setComputadora(a);
-	lab02.setComputadora(b);
-	lab03.setComputadora(c);
-	lab04.setComputadora(d);
-	lab05.setComputadora(e);
-	
-	
+		Laboratorio laboratorio[] = new Laboratorio[5];
 
+	for (int i = 0; i < 4; i+=2) {
+	
+	laboratorio[i] = new Laboratorio(new Computadora[50]);
+	for (int j = 0; j < 50; j++) {
+		laboratorio[i].llenadoComputadora(j, i);
+	}
+	}
+	
+	for (int i = 1; i < 4; i+=2) {
+		
+		laboratorio[i] = new Laboratorio(new Computadora[35]);
+		for (int j = 0; j < 35; j++) {
+			laboratorio[i].llenadoComputadora(j, i);
+		}
+		}
+	
+	for (int i = 4; i < 5; i++) {
+		laboratorio[i] = new Laboratorio(new Computadora[35]);
+		for (int j = 0; j < 35; j++) {
+			laboratorio[i].llenadoComputadora(j, i);
+		}
+	}
 	
 	//System.out.println(lab01.toString() + "\n" + lab02.toString() + "\n" + lab03.toString() + "\n" + lab04.toString() + "\n" + lab05.toString());
 	for(int i = 0; i<9; i++) {
@@ -95,13 +55,13 @@ public class Quiensabequeseaestamadre {
 	case 25: case 26 : case 27 : case 28 : case 29 : case 30 : 
 	case 31 : case 32: case 33 : case 34 : case 35 : case 36 : 
 		//Aquí va el código del prestamo de Laboratorio;
-		cola.quitar().getDato().apartarLaboratorio(todosLaboratorios[rd.nextInt(5)], rd.nextInt(9)+1);
+		//cola.quitar().getDato().apartarLaboratorio(todosLaboratorios[rd.nextInt(5)], rd.nextInt(9)+1);
 		break;
 	case 37 : case 38 : case 39 : case 40 : case 41  :case 42 : 
 	case 43 : case 44  :
 			//Aquí va el código de llegada del profe 				8% [25-44]
-			cola.insertarCola(new Nodo(new Maestro(strAleatorio.numInventarioAleatoria(10))));
-			cola.imprimirLista();
+			maestros.insertarCola(new Nodo(new Maestro()));
+			maestros.imprimirLista();
 			System.out.println("\n");
 		break;
 		
@@ -116,25 +76,29 @@ public class Quiensabequeseaestamadre {
 		 
 		 
 	case 65: case 66: case 67: case 68: case 69: case 70: case 71: 
-	case 72: case 73: case 74 : 
-			todasComputadoras[rd.nextInt(5)][rd.nextInt(35)].setFuncionalidad(false);//¿Qué computadora se descompuso?
-			for (int j = 0; j < 5; j++) {
+	case 72: case 73: case 74: case 75: case 76: case 77: case 78:  
+			rd.setSeed(System.currentTimeMillis());
+			laboratorio[rd.nextInt(5)].getComputadora()[rd.nextInt(35)].setFuncionalidad(false);
+			for (int j = 0; j < laboratorio.length; j++) {
 				for (int j2 = 0; j2 < 35; j2++) {
-					if(todasComputadoras[j][j2].isFuncionalidad() != true) {
-						//System.out.println("Tu computadora con núm de inventario: " + j +" "+ j2 +"  " + todasComputadoras[j][j2].getNumInventario() + " se descompuso");
+					if(laboratorio[j].getComputadora()[j2].isFuncionalidad() != true) {
+						System.out.println("Tu computadora con núm de inventario: " + j + " " + j2 + "  "+ laboratorio[j].getComputadora()[j2].getNumInventario() + " se descompuso");
 					}
 				}
-			}//Aquí va el código de descomponerse una computadora 	13% [65-78]
+			}
+			try {Thread.sleep(500); } catch(InterruptedException e) {}
+			//¿Qué computadora se descompuso?
+			//Aquí va el código de descomponerse una computadora 	13% [65-78]
 		break;
 		
-	case 75: case 76: case 77: case 78:
+	
 	case 79: case 80: case 81: case 82: case 84: case 85: 
 	case 86: case 87: case 88: case 89: case 90: case 91:
-		for (int j = 0; j < 5; j++) {
+		for (int j = 0; j < laboratorio.length; j++) {
 			for (int j2 = 0; j2 < 35; j2++) {
-				if(todasComputadoras[j][j2].isFuncionalidad() != true) {
-					todasComputadoras[j][j2].setFuncionalidad(true);
-					//System.out.println("Tu computadora con núm de inventario: " + j + " " + j2 + "  "+ todasComputadoras[j][j2].getNumInventario() + " fue reparada");
+				if(laboratorio[j].getComputadora()[j2].isFuncionalidad() != true) {
+					laboratorio[j].getComputadora()[j2].setFuncionalidad(true);
+					System.out.println("Tu computadora con núm de inventario: " + j + " " + j2 + "  "+ laboratorio[j].getComputadora()[j2].getNumInventario() + " fue reparada");
 				}
 			}
 		}

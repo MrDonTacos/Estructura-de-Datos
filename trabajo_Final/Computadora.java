@@ -14,10 +14,14 @@ public class Computadora {
 	private boolean perifericos[];
 	private String observaciones;
 	private boolean funcionalidad;
+	private int numPC;
 	
-	public Computadora () {
+	
+
+	public Computadora (int numPC) {
+		this.numPC = numPC;
 		funcionalidad = true;
-		this.aplicaciones = new String [5];
+		this.aplicaciones = new String [3];
 		this.numInventario = "000000000000000";
 		this.aplicaciones[0] = "Eclipse";
 		this.aplicaciones[1] = "MSOffice";
@@ -25,9 +29,10 @@ public class Computadora {
 		this.numInventario = "000000000000000";
 	}
 	
-	public Computadora(String appExclusiva) {
+	public Computadora(String appExclusiva, int numPC) {
+		this.numPC = numPC;
 		funcionalidad = true;
-		this.aplicaciones = new String [5];
+		this.aplicaciones = new String [4];
 		this.aplicaciones[3] = appExclusiva;
 		this.aplicaciones[0] = "Eclipse";
 		this.aplicaciones[1] = "MSOffice";
@@ -176,10 +181,18 @@ if(macAdrees.matches(".[A-F].") && macAdrees.matches(".[0-9].") && macAdrees.mat
 	public void setFuncionalidad(boolean funcionalidad) {
 		this.funcionalidad = funcionalidad;
 	}
+	
+	public int getNumPC() {
+		return numPC;
+	}
+
+	public void setNumPC(int numPC) {
+		this.numPC = numPC;
+	}
 
 	@Override
 	public String toString() {
-		return "\nComputadora [numInventario=" + numInventario + ", aplicaciones=" + Arrays.toString(aplicaciones)
+		return "\nNumero de computadora " + (numPC+1) + ": Computadora [numInventario=" + numInventario + ", aplicaciones=" + Arrays.toString(aplicaciones)
 				+ ", internet=" + internet + ", macAdrees=" + macAdrees + ", ipFija=" + ipFija + ", perifericos="
 				+ Arrays.toString(perifericos) + ", observaciones=" + observaciones + " Funcionalidad: " + funcionalidad + "]";
 

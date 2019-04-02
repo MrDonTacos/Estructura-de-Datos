@@ -19,16 +19,7 @@ public class Lista {
 	
 }
 	
-	public Lista insertarCola(Nodo x) {
-		Nodo n;
-		n = primero;
-		while(n.enlace!=null) {
-			n = n.enlace;
-		} n.enlace = x;
-		x.enlace = null;
-			
-		return this;
-	}
+	
 	
 	
 	public void imprimirLista() {

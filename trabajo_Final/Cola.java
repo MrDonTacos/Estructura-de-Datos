@@ -4,44 +4,41 @@ public class Cola extends Lista{	//PEPSI = Primeras Entradas Primeras SalIdas
 	Nodo cola;
 	
 	public Cola() {		//Lista vacía
-	cola = null;
+	primero = cola = null;
 }
 
-	public Cola(Nodo x) {
+	/*public Cola(Nodo x) {
 		if(cola==null) {
 			
 			primero = x;
 			x.enlace = null;
 			cola = primero;
 		}
+	}*/
+	
+	public void insertarCola(Nodo x) {
+		if(isEmpty()) {
+			primero = x;
+		}
+		else {
+			cola.enlace = x;
+		}
+		cola = x;
 	}
 	
-	public Cola insertarCola(Nodo x) {
-		if(cola==null) {
-			
-			primero = x;
-			primero.enlace = null;
-			cola = primero;
+	public Nodo quitar()throws Exception{
+		Nodo n = new Nodo ();
+		if(!isEmpty()) {
+			n.setDato(primero.getDato());
+			primero = primero.enlace;
 		}else {
-			cola = x;
-			cola.enlace = null;	
+		throw new Exception("Eliminar de una cola vacía");
 		}
-return this;
-		}
-	
-	public Nodo quitar(){
-		Nodo n;
-		if(cola==null) {
-			return null;
-		}
-		n= primero;
-		primero = primero.enlace;
 		return n;
 	}
 	
 	public boolean isEmpty() {
-		
-		return (cola==null)?true:false;
+		return (primero==null)?true:false;
 	}
 
 	public boolean colaLlena() {

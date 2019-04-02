@@ -6,7 +6,11 @@ public class Nodo {
 	protected Maestro dato;	
 	protected Exception excepcion;
 	protected Alumno alumno;
-	protected  Nodo enlace;			
+	protected  Nodo enlace;		
+	
+	public Nodo() {
+		
+	}
 	
 	public Nodo(Maestro x) {	
 		dato = x;			

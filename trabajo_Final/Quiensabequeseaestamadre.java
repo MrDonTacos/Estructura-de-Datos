@@ -46,7 +46,7 @@ public class Quiensabequeseaestamadre {
 	
 	case 1:	case 2:	case 3:	case 4:	case 5:	case 6:	
 	case 7:	case 8:	case 9:	case 10: case 11: case 12:
-		maestros.insertarCola(new Nodo(new Maestro()));//Aquí va el código para la llegada de los alumnos 			12% [1-12]
+		alumnos.insertarCola(new Nodo(new Maestro()));//Aquí va el código para la llegada de los alumnos 			12% [1-12]
 		break;
 		
 		
@@ -63,14 +63,19 @@ public class Quiensabequeseaestamadre {
 		int horario = rd.nextInt(9);
 		int lab = rd.nextInt(5);
 		
-			if (laboratorio[lab].getHorario()[horario] && horario>x && maestros.colaLlena()) {
+			if (laboratorio[lab].getHorario()[horario] && horario>x && !maestros.isEmpty()) {
 				laboratorio[lab].cambiarHorario(horario);
 				System.out.println("Se ha apartado exitosamente el laboratorio " + (lab+1) + " En el horario: " + horario);
-				maestros.quitar();
+				try {
+					maestros.quitar();
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+				if(!maestros.isEmpty()) {
 				System.out.println("La cola disminuyó ");
-				maestros.imprimirLista();}
+				maestros.imprimirLista();}}
 			else {
-				
+				System.out.println(maestros.isEmpty());//En caso de que esté ocupado se va a una pila
 			}
 			
 		break;
@@ -81,7 +86,7 @@ public class Quiensabequeseaestamadre {
 	case 43 : case 44  :
 			//Aquí va el código de llegada del profe 				8% [25-44]
 			maestros.insertarCola(new Nodo(new Maestro()));
-			System.out.println("La cola va en: ");
+			System.out.println("La cola ha aumentado: ");
 			maestros.imprimirLista();
 		break;
 		
@@ -90,7 +95,11 @@ public class Quiensabequeseaestamadre {
 	 case 45: case 46 : case 47 : case 48 : case 49: case 50 : case 51 : 
 	 case 52 : case 53 : case 54 : case 55 : case 56 : case 57  :case 58 : 
 	 case 59 : case 60 : case 61 : case 62 : case 63 : case 64 :
-			//Aquí va el código de la salida del alumno 			24% [45-64]
+		try {
+			alumnos.quitar();
+		} catch (Exception e1) {
+			
+		}//Aquí va el código de la salida del alumno 			24% [45-64]
 		 break;
 		 
 		 
@@ -127,6 +136,17 @@ public class Quiensabequeseaestamadre {
 	case 92 : case 93 : case 94 : case 95 :
 	case 96: case 97 : case 98 : case 99 : case 100 :	
 			x +=1;//Aquí va el código del cambio de hora			8%	[92-100]
+			if (i==0) {
+				System.out.println("Laboratorio abierto, hora actual: " + (i+9) + ".Hrs");
+				try {Thread.sleep(5000); } catch(InterruptedException e) {}
+			}
+			else if(i >0 && i < 8){
+				System.out.println("Hora actual: " + (i+9) + ".Hrs");
+				try {Thread.sleep(5000); } catch(InterruptedException e) {}
+			}
+			else {
+				System.out.println("Hora actual: " +  (i+9) + ".Hrs Laboratorio cerrado");
+			}
 		break;
 	}
 	

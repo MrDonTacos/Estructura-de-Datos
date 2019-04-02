@@ -46,24 +46,51 @@ public class Quiensabequeseaestamadre {
 	
 	case 1:	case 2:	case 3:	case 4:	case 5:	case 6:	
 	case 7:	case 8:	case 9:	case 10: case 11: case 12:
+	case 13: case 14: case 15: case 16: case 17:
 		alumnos.insertarCola(new Nodo(new Maestro()));//Aquí va el código para la llegada de los alumnos 			12% [1-12]
+		System.out.println("La cola de alumnos ha aumentado a "+ alumnos.tamañoCola()+ " alumnos");
 		break;
 		
 		
-	case 13: case 14: case 15: case 16: case 17: case 18:	
+	case 18:	
 	case 19: case 20: case 21: case 22:	case 23: case 24:	
-		//Aquí va el código de prestamo de maquina
+	case 25: case 26 : case 27 :
+		int horario = rd.nextInt(9);
+        int lab = rd.nextInt(5);
+        int compu = rd.nextInt(35);
+
+            if(laboratorio[lab].getHorario()[horario] && laboratorio[lab].getComputadora()[compu].getDisponibilidad() && !alumnos.isEmpty() 
+                    && laboratorio[lab].getComputadora()[compu].isFuncionalidad() && horario>i){
+                System.out.println("Se ha solicitado exitosamente la computadora " + (compu+1) + " del laboratorio: " + (lab+1) + " en el horario " + (horario+1));
+                laboratorio[lab].getComputadora()[compu].setDisponibilidad(false);
+                try {
+                    alumnos.quitar();
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+                if(!alumnos.isEmpty()) {
+                System.out.println("La cola alumnos disminuyó ");
+                alumnos.imprimirLista();}}
+
+            else {
+                //System.out.println("Computadora " + (compu+1)+ " del laboratorio " + (lab+1) + " Ocupada.");
+                //alumnos.isEmpty();
+            	System.out.println(laboratorio[lab].getHorario()[horario] + " "+ laboratorio[lab].getComputadora()[compu].getDisponibilidad() + " " + !alumnos.isEmpty() 
+                    + " " + laboratorio[lab].getComputadora()[compu].isFuncionalidad());
+            }
+//Aquí va el código de prestamo de maquina
 		
 		break;	
 	
 	
-	case 25: case 26 : case 27 : case 28 : case 29 : case 30 : 
+	case 28 : case 29 : case 30 : 
 	case 31 : case 32: case 33 : case 34 : case 35 : case 36 : 
+	case 37 : case 38 : case 39 : case 40 :
 		//Aquí va el código del prestamo de Laboratorio;
-		int horario = rd.nextInt(9);
-		int lab = rd.nextInt(5);
+		horario = rd.nextInt(9);
+		lab = rd.nextInt(5);
 		
-			if (laboratorio[lab].getHorario()[horario] && horario>x && !maestros.isEmpty()) {
+			if (laboratorio[lab].getHorario()[horario] && horario>i && !maestros.isEmpty()) {
 				laboratorio[lab].cambiarHorario(horario);
 				System.out.println("Se ha apartado exitosamente el laboratorio " + (lab+1) + " En el horario: " + horario);
 				try {
@@ -72,22 +99,22 @@ public class Quiensabequeseaestamadre {
 					System.out.println(e);
 				}
 				if(!maestros.isEmpty()) {
-				System.out.println("La cola disminuyó ");
+				System.out.println("La cola maestro disminuyó ");
 				maestros.imprimirLista();}}
 			else {
-				System.out.println(maestros.isEmpty());//En caso de que esté ocupado se va a una pila
+				//En caso de que esté ocupado se va a una pila
 			}
 			
 		break;
 		
 		
 		
-	case 37 : case 38 : case 39 : case 40 : case 41  :case 42 : 
+	 case 41  :case 42 : 
 	case 43 : case 44  :
 			//Aquí va el código de llegada del profe 				8% [25-44]
 			maestros.insertarCola(new Nodo(new Maestro()));
-			System.out.println("La cola ha aumentado: ");
-			maestros.imprimirLista();
+			System.out.println("La cola de maestros ha aumentado a "+ maestros.tamañoCola()+ " maestros");
+			
 		break;
 		
 		
@@ -95,11 +122,7 @@ public class Quiensabequeseaestamadre {
 	 case 45: case 46 : case 47 : case 48 : case 49: case 50 : case 51 : 
 	 case 52 : case 53 : case 54 : case 55 : case 56 : case 57  :case 58 : 
 	 case 59 : case 60 : case 61 : case 62 : case 63 : case 64 :
-		try {
-			alumnos.quitar();
-		} catch (Exception e1) {
-			
-		}//Aquí va el código de la salida del alumno 			24% [45-64]
+		//Aquí va el código de la salida del alumno 			24% [45-64]
 		 break;
 		 
 		 
@@ -108,7 +131,7 @@ public class Quiensabequeseaestamadre {
 	case 72: case 73: case 74: 
 			rd.setSeed(System.currentTimeMillis());
 			lab 	= rd.nextInt(5);
-			int compu=rd.nextInt(35);
+			compu=rd.nextInt(35);
 			laboratorio[lab].getComputadora()[compu].setFuncionalidad(false);
 			System.out.println("Tu computadora con núm de inventario: " + laboratorio[lab].getComputadora()[compu].getNumInventario() + " se descompuso");
 			try {Thread.sleep(500); } catch(InterruptedException e) {}

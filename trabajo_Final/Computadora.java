@@ -19,6 +19,7 @@ public class Computadora {
 	
 
 	public Computadora (int numPC) {
+		disponibilidad = true;
 		this.numPC = numPC;
 		funcionalidad = true;
 		this.aplicaciones = new String [3];
@@ -33,6 +34,7 @@ public class Computadora {
 	}
 	
 	public Computadora(String appExclusiva, int numPC) {
+		disponibilidad = true;
 		this.numPC = numPC;
 		funcionalidad = true;
 		this.aplicaciones = new String [4];

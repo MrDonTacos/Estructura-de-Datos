@@ -11,33 +11,20 @@ public class Computadora {
 	private boolean internet;
 	private String macAdrees;
 	private String ipFija;
-	private String perifericos[];
+	private boolean perifericos[];
 	private String observaciones;
-	private boolean funcionalidad;
-	private int numPC;
 	
-	
-
-	public Computadora (int numPC) {
-		disponibilidad = true;
-		this.numPC = numPC;
-		funcionalidad = true;
-		this.aplicaciones = new String [3];
+	public Computadora () {
+		this.aplicaciones = new String [5];
 		this.numInventario = "000000000000000";
 		this.aplicaciones[0] = "Eclipse";
 		this.aplicaciones[1] = "MSOffice";
 		this.aplicaciones[2] = "MathLab";
-		this.perifericos = new String [2];
-        this.perifericos[0] = "Bocinas";
-        this.perifericos[1] = "Quemador de CD";
 		this.numInventario = "000000000000000";
 	}
 	
-	public Computadora(String appExclusiva, int numPC) {
-		disponibilidad = true;
-		this.numPC = numPC;
-		funcionalidad = true;
-		this.aplicaciones = new String [4];
+	public Computadora(String appExclusiva) {
+		this.aplicaciones = new String [5];
 		this.aplicaciones[3] = appExclusiva;
 		this.aplicaciones[0] = "Eclipse";
 		this.aplicaciones[1] = "MSOffice";
@@ -95,11 +82,11 @@ public class Computadora {
 	}
 
 	public boolean getDisponibilidad() {
-		return disponibilidad;
+		return internet;
 	}
 
-	public void setDisponibilidad(boolean disponibilidad) {
-		this.disponibilidad = disponibilidad;
+	public void setDisponibilidad(boolean internet) {
+		this.internet = internet;
 	}
 
 	
@@ -155,16 +142,17 @@ if(macAdrees.matches(".[A-F].") && macAdrees.matches(".[0-9].") && macAdrees.mat
 	        this.ipFija = ipFija;
 	}
 		
-		public String [] getPerifericos() {
-			return perifericos;
-		}
-
 	
-		public void setPerifericos(String[] perifericos) {
 
-			for (int i = 0; i < perifericos.length; i++) {
-				this.perifericos = perifericos;}
-		}
+	public boolean [] getPerifericos() {
+		return perifericos;
+	}
+
+	public void setPerifericos(boolean [] perifericos) {
+
+		this.ipFija = ipFija;
+	}
+
 
 	public String getObservaciones() {
 		return observaciones;
@@ -178,27 +166,11 @@ if(macAdrees.matches(".[A-F].") && macAdrees.matches(".[0-9].") && macAdrees.mat
 
 
 	
-	public boolean isFuncionalidad() {
-		return funcionalidad;
-	}
-
-	public void setFuncionalidad(boolean funcionalidad) {
-		this.funcionalidad = funcionalidad;
-	}
-	
-	public int getNumPC() {
-		return numPC;
-	}
-
-	public void setNumPC(int numPC) {
-		this.numPC = numPC;
-	}
-
 	@Override
 	public String toString() {
-		return "\nNumero de computadora " + (numPC+1) + ": Computadora [numInventario=" + numInventario + ", aplicaciones=" + Arrays.toString(aplicaciones)
+		return "\nComputadora [numInventario=" + numInventario + ", aplicaciones=" + Arrays.toString(aplicaciones)
 				+ ", internet=" + internet + ", macAdrees=" + macAdrees + ", ipFija=" + ipFija + ", perifericos="
-				+ Arrays.toString(perifericos) + ", observaciones=" + observaciones + " Funcionalidad: " + funcionalidad + "]";
+				+ Arrays.toString(perifericos) + ", observaciones=" + observaciones + "]";
 
 	}
 

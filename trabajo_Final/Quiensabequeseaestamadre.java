@@ -1,67 +1,185 @@
 package trabajo_Final;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class Quiensabequeseaestamadre {
 	
 	
 	public static void main(String []args) {
-		STRA strAleatorio = new STRA();
-		Computadora a[] = new Computadora[50];
-		Computadora b[] = new Computadora[35];
-		Computadora c[] = new Computadora[50];
-		Computadora d[] = new Computadora[35];
-		Computadora e[] = new Computadora[35];
-	Laboratorio lab01 = new Laboratorio(01);
-	Laboratorio lab02 = new Laboratorio(02);
-	Laboratorio lab03 = new Laboratorio(03);
-	Laboratorio lab04 = new Laboratorio(04);
-	Laboratorio lab05 = new Laboratorio(05);
-	
-	for (int j = 0; j < a.length; j++) {
-		a [j] = new Computadora();
-		c [j] = new Computadora();
-		try{c [j].setNumInventario(strAleatorio.numInventarioAleatoria(15));
-		a [j].setNumInventario(strAleatorio.numInventarioAleatoria(15));}catch (Exception IOException) {}
-		try{a [j].setIpFija(strAleatorio.numIp());
-		c [j].setIpFija(strAleatorio.numIp());} catch (Exception IOException) {
-		}
-		try {a [j].setMacAdrees(strAleatorio.numMacAdress());
-		c [j].setMacAdrees(strAleatorio.numMacAdress());
-		} catch (Exception IOExecption) {
-			// TODO: handle exception
-		}
+		Random rd = new Random(System.currentTimeMillis());
+		Cola maestros = new Cola();
+		Cola alumnos = new Cola();
+		Pila p = new Pila();
 		
-	}
-	for (int i = 0; i < b.length; i++) {
-		b [i]= new Computadora();
-		d[i] = new Computadora();
-		e[i] = new Computadora();
-		try{	d[i].setNumInventario(strAleatorio.numInventarioAleatoria(15));
-				e[i].setNumInventario(strAleatorio.numInventarioAleatoria(15));
-				b[i].setNumInventario(strAleatorio.numInventarioAleatoria(15));
-				}catch (Exception IOException) {
-				}
-	try {	d[i].setIpFija(strAleatorio.numIp());
-			e[i].setIpFija(strAleatorio.numIp());
-			b[i].setIpFija(strAleatorio.numIp());
-			}catch (Exception IOException){
-			}
-	try {b [i].setMacAdrees(strAleatorio.numMacAdress());
-	d [i].setMacAdrees(strAleatorio.numMacAdress());
-	e [i].setMacAdrees(strAleatorio.numMacAdress());
-	} catch (Exception IOException) {
-		// TODO: handle exception
-	}}
-	lab01.setComputadora(a);
-	lab02.setComputadora(b);
-	lab03.setComputadora(c);
-	lab04.setComputadora(d);
-	lab05.setComputadora(e);
-	
-	System.out.println(lab01.toString() + "\n" + lab02.toString() + "\n" + lab03.toString() + "\n" + lab04.toString() + "\n" + lab05.toString());
-}
+		Laboratorio laboratorio[] = new Laboratorio[5];
 
-}
+	for (int i = 0; i < 4; i+=2) {
+	
+	laboratorio[i] = new Laboratorio(new Computadora[50], i);
+	for (int j = 0; j < 50; j++) {
+		laboratorio[i].llenadoComputadora(j);
+	}
+	}
+	
+	for (int i = 1; i < 4; i+=2) {
+		
+		laboratorio[i] = new Laboratorio(new Computadora[35], i);
+		for (int j = 0; j < 35; j++) {
+			laboratorio[i].llenadoComputadora(j);
+		}
+		}
+	
+	for (int i = 4; i < 5; i++) {
+		laboratorio[i] = new Laboratorio(new Computadora[35], i);
+		for (int j = 0; j < 35; j++) {
+			laboratorio[i].llenadoComputadora(j);
+		}
+	}
+	
+	//System.out.println(lab01.toString() + "\n" + lab02.toString() + "\n" + lab03.toString() + "\n" + lab04.toString() + "\n" + lab05.toString());
+	for(int i = 0; i<9; i++) {
+		int x =0;
+	while(x ==0) {
+	switch (rd.nextInt(100)+1) { //Lo que est� dentro del switch, te va a arrojar un n�mero del 1-100, y lo vamos a trabajar como un n�mero de porcentaje 100%
+	
+	
+	case 1:	case 2:	case 3:	case 4:	case 5:	case 6:	
+	case 7:	case 8:	case 9:	case 10: case 11: case 12:
+	case 13: case 14: case 15: case 16: case 17:
+		alumnos.insertarCola(new Nodo(new Maestro()));//Aqu� va el c�digo para la llegada de los alumnos 			12% [1-12]
+		System.out.println("La cola de alumnos ha aumentado a "+ alumnos.tamanoCola()+ " alumnos");
+		break;
+		
+		
+	case 18:	
+	case 19: case 20: case 21: case 22:	case 23: case 24:	
+	case 25: case 26 : case 27 :
+		int horario = rd.nextInt(9);
+        int lab = rd.nextInt(5);
+        int compu = rd.nextInt(35);
+
+            if(laboratorio[lab].getHorario()[horario] && laboratorio[lab].getComputadora()[compu].getDisponibilidad() && !alumnos.isEmpty() 
+                    && laboratorio[lab].getComputadora()[compu].isFuncionalidad() && horario>i){
+                System.out.println("Se ha solicitado exitosamente la computadora " + (compu+1) + " del laboratorio: " + (lab+1) + " en el horario " + (horario+1));
+                laboratorio[lab].getComputadora()[compu].setDisponibilidad(false);
+                try {
+                    alumnos.quitar();
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+                if(!alumnos.isEmpty()) {
+                System.out.println("La cola alumnos disminuy� ");
+                alumnos.imprimirLista();}}
+
+            else {
+                //System.out.println("Computadora " + (compu+1)+ " del laboratorio " + (lab+1) + " Ocupada.");
+                //alumnos.isEmpty();
+            	System.out.println(laboratorio[lab].getHorario()[horario] + " "+ laboratorio[lab].getComputadora()[compu].getDisponibilidad() + " " + !alumnos.isEmpty() 
+                    + " " + laboratorio[lab].getComputadora()[compu].isFuncionalidad());
+            }
+//Aqu� va el c�digo de prestamo de maquina
+		
+		break;	
+	
+	
+	case 28 : case 29 : case 30 : 
+	case 31 : case 32: case 33 : case 34 : case 35 : case 36 : 
+	case 37 : case 38 : case 39 : case 40 :
+		//Aqu� va el c�digo del prestamo de Laboratorio;
+		horario = rd.nextInt(9);
+		lab = rd.nextInt(5);
+		
+			if (laboratorio[lab].getHorario()[horario] && horario>i && !maestros.isEmpty()) {
+				laboratorio[lab].cambiarHorario(horario);
+				System.out.println("Se ha apartado exitosamente el laboratorio " + (lab+1) + " En el horario: " + horario);
+				try {
+					maestros.quitar();
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+				if(!maestros.isEmpty()) {
+				System.out.println("La cola maestro disminuy� ");
+				maestros.imprimirLista();}}
+			else {
+				//En caso de que est� ocupado se va a una pila
+			}
+			
+		break;
+		
+		
+		
+	 case 41  :case 42 : 
+	case 43 : case 44  :
+			//Aqu� va el c�digo de llegada del profe 				8% [25-44]
+			maestros.insertarCola(new Nodo(new Maestro()));
+			System.out.println("La cola de maestros ha aumentado a "+ maestros.tamanoCola()+ " maestros");
+			
+		break;
+		
+		
+		
+	 case 45: case 46 : case 47 : case 48 : case 49: case 50 : case 51 : 
+	 case 52 : case 53 : case 54 : case 55 : case 56 : case 57  :case 58 : 
+	 case 59 : case 60 : case 61 : case 62 : case 63 : case 64 :
+		//Aqu� va el c�digo de la salida del alumno 			24% [45-64]
+		 break;
+		 
+		 
+		 
+	case 65: case 66: case 67: case 68: case 69: case 70: case 71: 
+	case 72: case 73: case 74: 
+			rd.setSeed(System.currentTimeMillis());
+			lab 	= rd.nextInt(5);
+			compu=rd.nextInt(35);
+			laboratorio[lab].getComputadora()[compu].setFuncionalidad(false);
+			System.out.println("Tu computadora con n�m de inventario: " + laboratorio[lab].getComputadora()[compu].getNumInventario() + " se descompuso");
+			try {Thread.sleep(500); } catch(InterruptedException e) {}
+			//�Qu� computadora se descompuso?
+			//Aqu� va el c�digo de descomponerse una computadora 	13% [65-78]
+		break;
+		
+	
+	case 79: case 80: case 81: case 82: case 84: case 85: 
+	case 86: case 87: case 88: case 89: case 90: case 91:
+	case 75: case 76: case 77: case 78:  
+		for (int j = 0; j < laboratorio.length; j++) {
+			for (int j2 = 0; j2 < 35; j2++) {
+				if(laboratorio[j].getComputadora()[j2].isFuncionalidad() != true) {
+					laboratorio[j].getComputadora()[j2].setFuncionalidad(true);
+					System.out.println("Tu computadora con n�m de inventario: " + laboratorio[j].getComputadora()[j2].getNumInventario() + " fue reparada");
+					j2 =36;
+					j = laboratorio.length +1;
+				}
+			}
+		}
+		//Aqu� va el c�digo para Reparar una computadora 		12% [79-91]
+		break;
+		
+	case 92 : case 93 : case 94 : case 95 :
+	case 96: case 97 : case 98 : case 99 : case 100 :	
+			x +=1;//Aqu� va el c�digo del cambio de hora			8%	[92-100]
+			if (i==0) {
+				System.out.println("Laboratorio abierto, hora actual: " + (i+9) + ".Hrs");
+				try {Thread.sleep(5000); } catch(InterruptedException e) {}
+			}
+			else if(i >0 && i < 8){
+				System.out.println("Hora actual: " + (i+9) + ".Hrs");
+				try {Thread.sleep(5000); } catch(InterruptedException e) {}
+			}
+			else {
+				System.out.println("Hora actual: " +  (i+9) + ".Hrs Laboratorio cerrado");
+			}
+		break;
+	}
+	
+	
+	
+	}
+	}
+	}
+	}
+
+
 
 //Comentario cualquiera

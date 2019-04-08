@@ -2,7 +2,8 @@ package trabajo_Final;
 
 	
 public class Nodo {
-							
+		
+	protected String informe;
 	protected Maestro dato;	
 	protected Exception excepcion;
 	protected Alumno alumno;
@@ -27,8 +28,8 @@ public class Nodo {
 		enlace = null;		
 	}
 	
-	public Nodo(Exception printStackTrace) {
-		excepcion = printStackTrace;			
+	public Nodo(String informe) {
+		this.informe = informe;			
 		enlace = null;
 	}
 

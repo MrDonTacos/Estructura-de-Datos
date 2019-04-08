@@ -103,5 +103,3 @@ public class Laboratorio {
 				+ ", numLaboratorio=" + numLaboratorio + ", horario=" + Arrays.toString(horario) + "]";
 	}
 }
-	
-	

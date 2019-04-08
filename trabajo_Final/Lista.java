@@ -28,7 +28,7 @@ public class Lista {
 		
 		n = primero;
 		while (n!=null) {
-			System.out.println(n.dato + " ");
+			System.out.println(n.informe + " ");
 			n = n.enlace;
 		}
 	}

@@ -37,8 +37,6 @@ public class Quiensabequeseaestamadre {
 		}
 	}
 	
-	System.out.println(laboratorio[2].getComputadora()[0].getAplicaciones()[3]);
-	
 	//System.out.println(lab01.toString() + "\n" + lab02.toString() + "\n" + lab03.toString() + "\n" + lab04.toString() + "\n" + lab05.toString());
 	for(int i = 0; i<9; i++) {
 		int x =0;
@@ -62,27 +60,41 @@ public class Quiensabequeseaestamadre {
 		int horario = rd.nextInt(9);
         int lab = rd.nextInt(5);
         int compu = rd.nextInt(35);
-        
-            if(laboratorio[lab].getHorario()[i] && laboratorio[lab].getComputadora()[compu].getDisponibilidad() && !alumnos.isEmpty() 
-                    && laboratorio[lab].getComputadora()[compu].isFuncionalidad() ){
-                System.out.println("Se ha solicitado exitosamente la computadora " + (compu+1) + " del laboratorio: " + (lab+1) + " en el horario " + (horario+1));
+        String app[] = {"AutoCad", "LabView" , " "};
+        int apps = rd.nextInt(2);
+      for(int y=0; y<laboratorio.length;y++) {
+    	  if(laboratorio[y].getHorario()[i] && laboratorio[y].getComputadora()[0].getAplicaciones()[3].equals(app[apps])) {
+    	  for(int y2=0; y2<laboratorio[y].getComputadora().length; y2++) {
+            if(laboratorio[y].getComputadora()[y2].getDisponibilidad() && !alumnos.isEmpty() 
+                    && laboratorio[y].getComputadora()[y2].isFuncionalidad()){
+            	
+                System.out.println("Se ha solicitado exitosamente la computadora " + (y2+1) + " del laboratorio: " + (y+1) + " en el horario " + (i+1));
                 laboratorio[lab].getComputadora()[compu].setDisponibilidad(false);
+                
+               
                 try {
                     alumnos.quitar();
                 } catch (Exception e) {
                     System.out.println(e);
                 }
                 if(alumnos.isEmpty()) {
-                	System.out.println("Cola alumnos se vació");
+                	System.out.println("Cola alumnos se vació"); break;
                 }else {
-                System.out.println("La cola alumnos disminuyó a: " + alumnos.tamanoCola());}
-                }
-
-            else {
-                System.out.println("Computadora " + (compu+1)+ " del laboratorio " + (lab+1) + " Ocupada.");
-            }
-
-		
+                System.out.println("La cola alumnos disminuyó a: " + alumnos.tamanoCola());
+                break;}
+            
+            	}else {
+            		
+            } 
+    	  } }else {
+    		  if(!laboratorio[y].getHorario()[i]) {
+    		  p.insertarElemento(new Nodo ("No había computadora disponible en laboratorio: " + y + " En el horario " + (i+1)));
+    		  }else if (!laboratorio[y].getComputadora()[0].getAplicaciones()[3].equals(app[apps])){
+    			  p.insertarElemento(new Nodo("El programa " + app[apps] + " no se encontraba disponible en el laboratorio: " + y));
+    		  }
+    		  
+    		  }
+    	  }
 		break;	
 	
 	
@@ -92,8 +104,8 @@ public class Quiensabequeseaestamadre {
 		//Aquí va el código del prestamo de Laboratorio;
 		horario = rd.nextInt(9);
 		lab = rd.nextInt(5);
-		
-			if (laboratorio[lab].getHorario()[horario] && horario>i && !maestros.isEmpty()) {
+			if( horario>i && horario <8 ) {
+			if (laboratorio[lab].getHorario()[horario] && !maestros.isEmpty()) {
 				laboratorio[lab].cambiarHorario(horario);
 				System.out.println("Se ha apartado exitosamente el laboratorio " + (lab+1) + " En el horario: " + horario);
 				try {
@@ -105,10 +117,10 @@ public class Quiensabequeseaestamadre {
 				System.out.println("La cola maestro disminuyó a: " + maestros.tamanoCola());
 				}else{System.out.println("Cola de maestros vacía");}}
 			else {
-				Nodo texto = new Nodo("El laboratorio " + lab + ". En la hora: " + horario );//En caso de que esté ocupado se va a una pila
-				p.insertarElemento(texto);
+				//En caso de que esté ocupado se va a una pila
+				p.insertarElemento(new Nodo ("El laboratorio " + lab + ". En la hora: " + horario + " Estaba ocupado"));
 			}
-			
+			}
 		break;
 		
 		
@@ -163,6 +175,10 @@ public class Quiensabequeseaestamadre {
 		
 	case 92 : case 93 : case 94 : case 95 :
 	case 96: case 97 : case 98 : case 99 : case 100 :	
+		if(!p.pilaVacia()) {
+			p.imprimirLista();
+			p.limpiarPila();
+		}	
 			x +=1;//Aquí va el código del cambio de hora			8%	[92-100]
 			if (i==0) {
 				System.out.println("Laboratorio abierto, hora actual: " + (i+9) + ".Hrs\n");
@@ -175,7 +191,7 @@ public class Quiensabequeseaestamadre {
 			else {
 				System.out.println("Hora actual: " +  (i+9) + ".Hrs Laboratorio cerrado\n");
 			}
-			System.out.println(p.toString());
+			
 		break;
 	}
 	

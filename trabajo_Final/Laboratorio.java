@@ -59,7 +59,7 @@ public class Laboratorio {
 			else if(numLaboratorio ==1) {
 				computadora[j] = new Computadora("LabView", j);}
 			else {
-				computadora[j] = new Computadora(j);}
+				computadora[j] = new Computadora(" ",j);}
 		try{
 			computadora [j].setNumInventario(strAleatorio.numInventarioAleatoria(15));
 		}catch (Exception IOException) {}
@@ -103,3 +103,5 @@ public class Laboratorio {
 				+ ", numLaboratorio=" + numLaboratorio + ", horario=" + Arrays.toString(horario) + "]";
 	}
 }
+	
+	

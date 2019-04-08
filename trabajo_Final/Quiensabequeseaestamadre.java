@@ -37,6 +37,8 @@ public class Quiensabequeseaestamadre {
 		}
 	}
 	
+	System.out.println(laboratorio[2].getComputadora()[0].getAplicaciones()[3]);
+	
 	//System.out.println(lab01.toString() + "\n" + lab02.toString() + "\n" + lab03.toString() + "\n" + lab04.toString() + "\n" + lab05.toString());
 	for(int i = 0; i<9; i++) {
 		int x =0;
@@ -47,18 +49,20 @@ public class Quiensabequeseaestamadre {
 	case 1:	case 2:	case 3:	case 4:	case 5:	case 6:	
 	case 7:	case 8:	case 9:	case 10: case 11: case 12:
 	case 13: case 14: case 15: case 16: case 17:
-		alumnos.insertarCola(new Nodo(new Maestro()));//Aquí va el código para la llegada de los alumnos 			12% [1-12]
-		System.out.println("La cola de alumnos ha aumentado a "+ alumnos.tamañoCola()+ " alumnos");
+		//Aquí va el código para la llegada de los alumnos 			17% [1-17]
+		alumnos.insertarCola(new Nodo(new Maestro()));
+		System.out.println("La cola de alumnos ha aumentado a "+ alumnos.tamanoCola()+ " alumnos");
 		break;
 		
 		
-	case 18:	
-	case 19: case 20: case 21: case 22:	case 23: case 24:	
-	case 25: case 26 : case 27 :
+	case 18: case 19: case 20: case 21: case 22:	
+	case 23: case 24: case 25: case 26 : case 27:
+		
+		//Aquí va el código de prestamo de maquina 
 		int horario = rd.nextInt(9);
         int lab = rd.nextInt(5);
         int compu = rd.nextInt(35);
-
+        
             if(laboratorio[lab].getHorario()[i] && laboratorio[lab].getComputadora()[compu].getDisponibilidad() && !alumnos.isEmpty() 
                     && laboratorio[lab].getComputadora()[compu].isFuncionalidad() ){
                 System.out.println("Se ha solicitado exitosamente la computadora " + (compu+1) + " del laboratorio: " + (lab+1) + " en el horario " + (horario+1));
@@ -71,20 +75,20 @@ public class Quiensabequeseaestamadre {
                 if(alumnos.isEmpty()) {
                 	System.out.println("Cola alumnos se vació");
                 }else {
-                System.out.println("La cola alumnos disminuyó a: " + alumnos.tamañoCola());}
+                System.out.println("La cola alumnos disminuyó a: " + alumnos.tamanoCola());}
                 }
 
             else {
                 System.out.println("Computadora " + (compu+1)+ " del laboratorio " + (lab+1) + " Ocupada.");
             }
-//Aquí va el código de prestamo de maquina
+
 		
 		break;	
 	
 	
-	case 28 : case 29 : case 30 : 
-	case 31 : case 32: case 33 : case 34 : case 35 : case 36 : 
-	case 37 : case 38 : case 39 : case 40 :
+	case 28 : case 29 : case 30 : case 31 : case 32: case 33 : 
+	case 34 : case 35 : case 36 : case 37 : case 38 : case 39 : 
+	case 40 :
 		//Aquí va el código del prestamo de Laboratorio;
 		horario = rd.nextInt(9);
 		lab = rd.nextInt(5);
@@ -98,7 +102,7 @@ public class Quiensabequeseaestamadre {
 					System.out.println(e);
 				}
 				if(!maestros.isEmpty()) {
-				System.out.println("La cola maestro disminuyó a: " + maestros.tamañoCola());
+				System.out.println("La cola maestro disminuyó a: " + maestros.tamanoCola());
 				}else{System.out.println("Cola de maestros vacía");}}
 			else {
 				Nodo texto = new Nodo("El laboratorio " + lab + ". En la hora: " + horario );//En caso de que esté ocupado se va a una pila
@@ -109,11 +113,12 @@ public class Quiensabequeseaestamadre {
 		
 		
 		
-	 case 41  :case 42 : 
+		
+	case 41  :case 42 : 
 	case 43 : case 44  :
-			//Aquí va el código de llegada del profe 				8% [25-44]
+			//Aquí va el código de llegada del profe 				4% [41-44]
 			maestros.insertarCola(new Nodo(new Maestro()));
-			System.out.println("La cola de maestros ha aumentado a "+ maestros.tamañoCola()+ " maestros");
+			System.out.println("La cola de maestros ha aumentado a "+ maestros.tamanoCola()+ " maestros");
 			
 		break;
 		

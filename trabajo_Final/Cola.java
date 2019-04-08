@@ -49,7 +49,7 @@ public class Cola extends Lista{	//PEPSI = Primeras Entradas Primeras SalIdas
 		return primero;
 	}
 	
-	public int tamañoCola() {
+	public int tamanoCola() {
 		Nodo aux = primero;
 		int contador = 0;
 		while(aux.enlace!=null) {

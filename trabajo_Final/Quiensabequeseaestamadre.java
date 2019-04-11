@@ -55,6 +55,8 @@ public class Quiensabequeseaestamadre {
 		
 	case 18: case 19: case 20: case 21: case 22:	
 	case 23: case 24: case 25: case 26 : case 27:
+	case 41  :case 42 : case 43 : case 44  : 
+	case 45: case 46 : 
 		
 		//Aquí va el código de prestamo de maquina 
 		int horario = rd.nextInt(9);
@@ -126,8 +128,7 @@ public class Quiensabequeseaestamadre {
 		
 		
 		
-	case 41  :case 42 : 
-	case 43 : case 44  :
+	case 47 : case 48 : case 49: case 50 : case 51 :
 			//Aquí va el código de llegada del profe 				4% [41-44]
 			maestros.insertarCola(new Nodo(new Maestro()));
 			System.out.println("La cola de maestros ha aumentado a "+ maestros.tamanoCola()+ " maestros");
@@ -136,11 +137,26 @@ public class Quiensabequeseaestamadre {
 		
 		
 		
-	 case 45: case 46 : case 47 : case 48 : case 49: case 50 : case 51 : 
+ 
 	 case 52 : case 53 : case 54 : case 55 : case 56 : case 57  :case 58 : 
 	 case 59 : case 60 : case 61 : case 62 : case 63 : case 64 :
-		//Aquí va el código de la salida del alumno 			24% [45-64]
-		 break;
+		 try {  for (int j = 0; j< laboratorio.length;j++){
+             for (int k=0; k < 35;k++){
+                 if(laboratorio[j].getComputadora()[k].getDisponibilidad()!=false){
+                        laboratorio[j].getComputadora()[k]. setDisponibilidad(true);   
+
+         System.out.println("Tu computadora con núm de inventario: " + laboratorio[j].getComputadora()[k].getNumInventario() + " fue desocupada");
+         k =36;
+         j = laboratorio.length +1;                
+                        
+                 }
+             }
+         }
+		 	alumnos.quitar();
+		 } catch (Exception e1) {
+ 
+	}//Aquí va el código de la salida del alumno             24% [45-64]
+break;
 		 
 		 
 		 
@@ -181,15 +197,15 @@ public class Quiensabequeseaestamadre {
 		}	
 			x +=1;//Aquí va el código del cambio de hora			8%	[92-100]
 			if (i==0) {
-				System.out.println("Laboratorio abierto, hora actual: " + (i+9) + ".Hrs\n");
+				System.out.println("\nLaboratorio abierto, hora actual: " + (i+9) + ".Hrs\n");
 				try {Thread.sleep(5000); } catch(InterruptedException e) {}
 			}
 			else if(i >0 && i < 8){
-				System.out.println("Hora actual: " + (i+9) + ".Hrs\n");
+				System.out.println("\nHora actual: " + (i+9) + ".Hrs\n");
 				try {Thread.sleep(5000); } catch(InterruptedException e) {}
 			}
 			else {
-				System.out.println("Hora actual: " +  (i+9) + ".Hrs Laboratorio cerrado\n");
+				System.out.println("\nHora actual: " +  (i+9) + ".Hrs Laboratorio cerrado\n");
 			}
 			
 		break;

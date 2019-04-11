@@ -76,8 +76,7 @@ public class Computadora {
 			if(aplicaciones[i].equals(aplicaciones[j])) {
 				//System.out.println("Tu aplicaci�n " + aplicaciones[i]+  " est� repetida con la aplicacion " + aplicaciones[j]);
 				aplicaciones[i] = null;
-			}else {
-				this.aplicaciones = aplicaciones;}
+			}else {this.aplicaciones = aplicaciones;}
 		}
 		}
 

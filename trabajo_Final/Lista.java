@@ -21,8 +21,7 @@ public class Lista {
 	
 	
 	
-	
-	public void imprimirLista() {
+public void imprimirLista() {
 		
 		Nodo n;
 		
